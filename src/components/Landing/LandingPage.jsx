@@ -7,8 +7,14 @@ import { RxLapTimer } from "react-icons/rx";
 import { MdOutlineInsertChartOutlined } from "react-icons/md";
 import { SlSettings } from "react-icons/sl";
 import { Link } from "react-router-dom";
+import { ImExit } from "react-icons/im";
+import { clearStorage } from "../../core/services/LocalStorage";
 
-export default function LandingPage() {
+export default function LandingPage({ isExit }) {
+  const handleExit = () => {
+    isExit();
+    clearStorage();
+  };
   return (
     <div
       className="h-screen w-screen overflow-x-hidden"
@@ -23,7 +29,10 @@ export default function LandingPage() {
           <div className="text-2xl font-iran text-white font-semibold">
             زمین تمرین
           </div>
-          <div className="h-12 w-12 bg-white"></div>
+          <ImExit
+            onClick={() => handleExit()}
+            className="h-7 w-7 text-white cursor-pointer"
+          />
         </div>
       </div>
 
@@ -62,9 +71,13 @@ export default function LandingPage() {
         <div className="mr-4 mb-2 mt-4 font-iran text-white font-bold text-xl">
           پیشنهادات
         </div>
-        <Swiper slidesPerView={"auto"} spaceBetween={20} className="mySwiper">
+        <Swiper
+          slidesPerView={"auto"}
+          spaceBetween={20}
+          className="mySwiper swiper3"
+        >
           <SwiperSlide>
-            <Link to="">
+            <Link to="/Detail/1">
               <img src={pic} className="relative rounded-xl" alt="" />
               <span className="absolute top-5 right-5 text-white font-iran">
                 لورم ایپسون
@@ -72,7 +85,7 @@ export default function LandingPage() {
             </Link>
           </SwiperSlide>
           <SwiperSlide>
-            <Link to="">
+            <Link to="/Detail/2">
               <img src={pic} className="relative rounded-xl" alt="" />
               <span className="absolute top-5 right-5 text-white font-iran">
                 لورم ایپسون
@@ -80,7 +93,7 @@ export default function LandingPage() {
             </Link>
           </SwiperSlide>
           <SwiperSlide>
-            <Link to="">
+            <Link to="/Detail/3">
               <img src={pic} className="relative rounded-xl" alt="" />
               <span className="absolute top-5 right-5 text-white font-iran">
                 لورم ایپسون
@@ -102,9 +115,13 @@ export default function LandingPage() {
         <div className="mr-4 mb-2 font-iran text-white font-bold text-xl">
           سایر
         </div>
-        <Swiper slidesPerView={"auto"} spaceBetween={20} className="mySwiper">
+        <Swiper
+          slidesPerView={"auto"}
+          spaceBetween={20}
+          className="mySwiper swiper3"
+        >
           <SwiperSlide className="slider2">
-            <Link to="/">
+            <Link to="/Detail/4">
               <div>
                 <img src={pic} className="rounded-xl" alt="" />
                 <span className="flex justify-start my-1 text-white font-iran">
@@ -114,7 +131,7 @@ export default function LandingPage() {
             </Link>
           </SwiperSlide>
           <SwiperSlide className="slider2">
-            <Link to="/">
+            <Link to="/Detail/5">
               <div>
                 <img src={pic} className="rounded-xl" alt="" />
                 <span className="flex justify-start my-1 text-white font-iran">
@@ -124,7 +141,7 @@ export default function LandingPage() {
             </Link>
           </SwiperSlide>
           <SwiperSlide className="slider2">
-            <Link to="/">
+            <Link to="/Detail/6">
               <div>
                 <img src={pic} className="rounded-xl" alt="" />
                 <span className="flex justify-start my-1 text-white font-iran">
@@ -134,7 +151,7 @@ export default function LandingPage() {
             </Link>
           </SwiperSlide>
           <SwiperSlide className="slider2">
-            <Link to="/">
+            <Link to="/Detail/7">
               <div>
                 <img src={pic} className="rounded-xl" alt="" />
                 <span className="flex justify-start my-1 text-white font-iran">

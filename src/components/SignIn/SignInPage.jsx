@@ -1,9 +1,11 @@
 import { Form, Formik, Field } from "formik";
 import { Link } from "react-router-dom";
+import { setItem } from "../../core/services/LocalStorage";
 
-export default function SignInPage() {
+export default function SignInPage({ isLogin }) {
   const handleSubmit = async (value) => {
-    console.log(value);
+    setItem("token", 1);
+    isLogin();
   };
   return (
     <div
@@ -15,11 +17,11 @@ export default function SignInPage() {
     >
       <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-lg text-center">
-          <h1 className="text-2xl font-semibold text-slate-50 sm:text-3xl">
+          <h1 className="text-2xl font-semibold text-slate-50 sm:text-3xl font-iran">
             خوش آمدید
           </h1>
 
-          <p className="mt-2 text-violet-100 font-normal">
+          <p className="mt-2 text-violet-100 font-normal font-iran">
             لطفا وارد حساب کاربری خود شوید
           </p>
         </div>
@@ -34,7 +36,7 @@ export default function SignInPage() {
                 <Field
                   name="email"
                   type="email"
-                  className="w-full rounded-lg placeholder:text-white bg-gray-600 opacity-80 text-white p-4 pr-6 mt-4 text-sm shadow-sm outline-none"
+                  className="w-full font-iran rounded-lg placeholder:text-white bg-white/20 opacity-80 text-white p-4 pr-6 mt-4 text-sm shadow-sm outline-none"
                   placeholder="نام کاربری"
                 />
               </div>
@@ -44,7 +46,7 @@ export default function SignInPage() {
                 <Field
                   name="password"
                   type="password"
-                  className="w-full rounded-lg placeholder:text-white bg-gray-600 opacity-80 text-white p-4 pr-6 mt-4 text-sm shadow-sm outline-none"
+                  className="w-full rounded-lg font-iran placeholder:text-white bg-white/20 opacity-80 text-white p-4 pr-6 mt-4 text-sm shadow-sm outline-none"
                   placeholder="رمز عبور"
                 />
               </div>
@@ -52,14 +54,14 @@ export default function SignInPage() {
             <div className="flex items-center justify-between">
               <button
                 type="submit"
-                className="block rounded-full bg-blue-600 w-full mt-6 px-5 py-3 text-lg font-semibold text-white"
+                className="block font-irans rounded-full bg-blue-600 w-full mt-6 px-5 py-3 text-lg font-semibold text-white"
               >
                 ورود
               </button>
             </div>
             <Link
-              to="/"
-              className="flex text-lg font-light text-slate-100 item-center justify-center underline"
+              to=""
+              className="flex text-lg font-iran font-light text-slate-100 item-center justify-center underline"
             >
               فراموشی رمز عبور
             </Link>
