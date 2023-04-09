@@ -84,6 +84,7 @@ export default function LandingPage({ isExit }) {
             <SwiperSlide key={index}>
               <Link to={`/Detail/${data.id}`}>
                 <img
+                  style={{ width: "40vh", height: "25vh" }}
                   src={data.activities[0].poster}
                   className="relative rounded-xl"
                   alt=""
@@ -112,6 +113,7 @@ export default function LandingPage({ isExit }) {
                 <div>
                   <img
                     src={data.activities[0].poster}
+                    style={{ width: "40vh", height: "20vh" }}
                     className="rounded-xl"
                     alt=""
                   />
