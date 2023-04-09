@@ -1,20 +1,28 @@
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
+
+import logo from "../../assets/images/130.png";
+import logo2 from "../../assets/images/127.png";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "../Common/SliderStyleDetails.css";
 import { Pagination } from "swiper";
-import pic from "../../assets/images/129.jpg";
-import logo from "../../assets/images/130.png";
+
 import { CiStar } from "react-icons/ci";
 import { RiPlayListAddLine } from "react-icons/ri";
 import { HiArrowLeft, HiOutlinePlusSm, HiOutlineMinusSm } from "react-icons/hi";
 import { BsRepeat } from "react-icons/bs";
 import { BiInfoCircle } from "react-icons/bi";
-import { Link } from "react-router-dom";
-import { useState } from "react";
-import logo2 from "../../assets/images/127.png";
+
+import { getDataById } from "../../core/dataFieldAPI";
 
 export default function DetailsPage() {
+  const params = useParams();
+  const sportData = getDataById(parseInt(params.id));
+
   const [counter, setCounter] = useState(1);
 
   const handlePlus = () => {
@@ -27,19 +35,16 @@ export default function DetailsPage() {
     }
   };
 
+  console.log(sportData.activities[0]);
   return (
     <div>
       <div>
         <Swiper pagination={true} modules={[Pagination]} className="mySwiper">
-          <SwiperSlide>
-            <img src={pic} alt="" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src={pic} alt="" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src={pic} alt="" />
-          </SwiperSlide>
+          {sportData.activities[0].slides.map((data, index) => (
+            <SwiperSlide key={index}>
+              <img src={data} alt="" />
+            </SwiperSlide>
+          ))}
         </Swiper>
         <div className="fixed top-0 z-20 w-screen h-16">
           <div className="flex justify-between mt-10 mx-6">
@@ -71,30 +76,26 @@ export default function DetailsPage() {
             نام حرکت
           </div>
           <div className="text-white font-iran mr-4 text-lg font-medium">
-            حرکت به طرفین
+            {sportData.activities[0].title}
           </div>
           <div className="text-white font-iran mt-4 mr-4 text-lg font-light">
             توضیحات بیشتر
           </div>
           <div className="text-violet-200 font-iran mx-4 text-sm font-light text-justify">
-            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-            استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در
-            ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و
-            کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
+            {sportData.activities[0].description}
           </div>
           <div className="text-white font-iran mt-4 mr-4 text-lg font-light">
             هدف حرکت
           </div>
           <div className="flex justify-start mt-1 mb-4">
-            <div className="font-iran text-white text-sm border border-white w-fit p-1 mr-3 rounded-full bg-slate-700/50">
-              تقویت عضلات
-            </div>
-            <div className="font-iran text-white text-sm border border-white w-fit p-1 mr-3 rounded-full bg-slate-700/50">
-              تقویت عضلات
-            </div>
-            <div className="font-iran text-white text-sm border border-white w-fit p-1 mr-3 rounded-full bg-slate-700/50">
-              تقویت عضلات
-            </div>
+            {sportData.activities[0].activityGoals.map((activeGoal, index) => (
+              <div
+                key={index}
+                className="font-iran text-white text-sm border border-white w-fit p-1 mr-3 rounded-full bg-slate-700/50"
+              >
+                {activeGoal}
+              </div>
+            ))}
           </div>
         </div>
       </div>

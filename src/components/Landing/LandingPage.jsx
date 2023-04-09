@@ -1,7 +1,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "../Common/SliderStyle.css";
-import pic from "../../assets/images/128.png";
 import { HiHome, HiOutlinePlus } from "react-icons/hi";
 import { RxLapTimer } from "react-icons/rx";
 import { MdOutlineInsertChartOutlined } from "react-icons/md";
@@ -10,12 +9,16 @@ import { Link } from "react-router-dom";
 import { ImExit } from "react-icons/im";
 import { clearStorage } from "../../core/services/LocalStorage";
 import avatar from "../../assets/images/126.png";
+import React, { useState } from "react";
+import { getAllData } from "../../core/dataFieldAPI";
 
 export default function LandingPage({ isExit }) {
+  const [datas] = useState(getAllData);
   const handleExit = () => {
     isExit();
     clearStorage();
   };
+
   return (
     <div
       className="h-screen w-screen overflow-x-hidden"
@@ -26,7 +29,7 @@ export default function LandingPage({ isExit }) {
     >
       <div className="border border-transparent w-screen h-20">
         <div className="flex justify-around items-center mt-4">
-          <img src={avatar} className="w-12 rounded-full" />
+          <img src={avatar} alt="" className="w-12 rounded-full" />
           <div className="text-2xl font-iran text-white font-semibold">
             زمین تمرین
           </div>
@@ -77,38 +80,20 @@ export default function LandingPage({ isExit }) {
           spaceBetween={20}
           className="mySwiper swiper3"
         >
-          <SwiperSlide>
-            <Link to="/Detail/1">
-              <img src={pic} className="relative rounded-xl" alt="" />
-              <span className="absolute top-5 right-5 text-white font-iran">
-                لورم ایپسون
-              </span>
-            </Link>
-          </SwiperSlide>
-          <SwiperSlide>
-            <Link to="/Detail/2">
-              <img src={pic} className="relative rounded-xl" alt="" />
-              <span className="absolute top-5 right-5 text-white font-iran">
-                لورم ایپسون
-              </span>
-            </Link>
-          </SwiperSlide>
-          <SwiperSlide>
-            <Link to="/Detail/3">
-              <img src={pic} className="relative rounded-xl" alt="" />
-              <span className="absolute top-5 right-5 text-white font-iran">
-                لورم ایپسون
-              </span>
-            </Link>
-          </SwiperSlide>
-          <SwiperSlide>
-            <Link to="">
-              <img src={pic} className="relative rounded-xl" alt="" />
-              <span className="absolute top-5 right-5 text-white font-iran">
-                لورم ایپسون
-              </span>
-            </Link>
-          </SwiperSlide>
+          {datas.map((data, index) => (
+            <SwiperSlide key={index}>
+              <Link to={`/Detail/${data.id}`}>
+                <img
+                  src={data.activities[0].poster}
+                  className="relative rounded-xl"
+                  alt=""
+                />
+                <span className="absolute top-5 right-5 text-white font-iran">
+                  {data.title}
+                </span>
+              </Link>
+            </SwiperSlide>
+          ))}
         </Swiper>
       </div>
 
@@ -121,46 +106,22 @@ export default function LandingPage({ isExit }) {
           spaceBetween={20}
           className="mySwiper swiper3 mb-20"
         >
-          <SwiperSlide className="slider2">
-            <Link to="/Detail/4">
-              <div>
-                <img src={pic} className="rounded-xl" alt="" />
-                <span className="flex justify-start my-1 text-white font-iran">
-                  لورم ایپسون
-                </span>
-              </div>
-            </Link>
-          </SwiperSlide>
-          <SwiperSlide className="slider2">
-            <Link to="/Detail/5">
-              <div>
-                <img src={pic} className="rounded-xl" alt="" />
-                <span className="flex justify-start my-1 text-white font-iran">
-                  لورم ایپسون
-                </span>
-              </div>
-            </Link>
-          </SwiperSlide>
-          <SwiperSlide className="slider2">
-            <Link to="/Detail/6">
-              <div>
-                <img src={pic} className="rounded-xl" alt="" />
-                <span className="flex justify-start my-1 text-white font-iran">
-                  لورم ایپسون
-                </span>
-              </div>
-            </Link>
-          </SwiperSlide>
-          <SwiperSlide className="slider2">
-            <Link to="/Detail/7">
-              <div>
-                <img src={pic} className="rounded-xl" alt="" />
-                <span className="flex justify-start my-1 text-white font-iran">
-                  لورم ایپسون
-                </span>
-              </div>
-            </Link>
-          </SwiperSlide>
+          {datas.map((data, index) => (
+            <SwiperSlide key={index} className="slider2">
+              <Link to={`/Detail/${data.id}`}>
+                <div>
+                  <img
+                    src={data.activities[0].poster}
+                    className="rounded-xl"
+                    alt=""
+                  />
+                  <span className="flex justify-start my-1 text-white font-iran">
+                    {data.title}
+                  </span>
+                </div>
+              </Link>
+            </SwiperSlide>
+          ))}
         </Swiper>
       </div>
       <div>
