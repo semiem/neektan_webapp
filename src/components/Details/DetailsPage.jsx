@@ -12,6 +12,7 @@ import { BsRepeat } from "react-icons/bs";
 import { BiInfoCircle } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import logo2 from "../../assets/images/127.png";
 
 export default function DetailsPage() {
   const [counter, setCounter] = useState(1);
@@ -40,9 +41,9 @@ export default function DetailsPage() {
             <img src={pic} alt="" />
           </SwiperSlide>
         </Swiper>
-        <div className="absolute top-0 z-10 w-screen h-16">
+        <div className="fixed top-0 z-20 w-screen h-16">
           <div className="flex justify-between mt-10 mx-6">
-            <div className="bg-white w-16 h-10"></div>
+            <img src={logo2} alt="" className="w-10" />
             <Link to="/">
               <HiArrowLeft className="w-6 h-6 text-white" />
             </Link>

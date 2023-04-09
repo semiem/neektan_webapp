@@ -9,6 +9,7 @@ import { SlSettings } from "react-icons/sl";
 import { Link } from "react-router-dom";
 import { ImExit } from "react-icons/im";
 import { clearStorage } from "../../core/services/LocalStorage";
+import avatar from "../../assets/images/126.png";
 
 export default function LandingPage({ isExit }) {
   const handleExit = () => {
@@ -25,7 +26,7 @@ export default function LandingPage({ isExit }) {
     >
       <div className="border border-transparent w-screen h-20">
         <div className="flex justify-around items-center mt-4">
-          <div className="h-12 w-12 rounded-full bg-white"></div>
+          <img src={avatar} className="w-12 rounded-full" />
           <div className="text-2xl font-iran text-white font-semibold">
             زمین تمرین
           </div>
@@ -43,7 +44,7 @@ export default function LandingPage({ isExit }) {
         <Link to="/">
           <div
             style={{
-              width: "42vh",
+              width: "46vh",
               background:
                 "linear-gradient(135deg, rgba(21,44,78,1) 0%, rgba(44,64,99,1) 50%)",
             }}
@@ -59,7 +60,7 @@ export default function LandingPage({ isExit }) {
               >
                 <HiOutlinePlus className="h-9 w-9 text-white" />
               </div>
-              <span className="text-white font-iran font-bold text-xl w-44 mr-8">
+              <span className="text-white font-iran font-bold text-xl w-44 mr-4">
                 فعالیت های خود را مدیریت کنید
               </span>
             </div>
@@ -118,7 +119,7 @@ export default function LandingPage({ isExit }) {
         <Swiper
           slidesPerView={"auto"}
           spaceBetween={20}
-          className="mySwiper swiper3"
+          className="mySwiper swiper3 mb-20"
         >
           <SwiperSlide className="slider2">
             <Link to="/Detail/4">
@@ -164,7 +165,7 @@ export default function LandingPage({ isExit }) {
       </div>
       <div>
         <div
-          className="absolute bottom-0 w-full h-14 rounded-t-3xl z-50"
+          className="fixed bottom-0 w-full h-14 rounded-t-3xl z-50"
           style={{
             background:
               "linear-gradient(180deg, rgba(40,85,152,1) 0%, rgba(23,35,61,1) 65%, rgba(22,32,44,1) 80%)",
