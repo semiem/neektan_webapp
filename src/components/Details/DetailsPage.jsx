@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
@@ -35,7 +35,20 @@ export default function DetailsPage() {
     }
   };
 
-  console.log(sportData.activities[0]);
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  const handleScroll = () => {
+    const position = window.pageYOffset;
+    setScrollPosition(position);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <div>
       <div>
@@ -46,8 +59,13 @@ export default function DetailsPage() {
             </SwiperSlide>
           ))}
         </Swiper>
-        <div className="fixed top-0 z-20 w-screen h-16">
-          <div className="flex justify-between mt-10 mx-6">
+        <div
+          style={
+            scrollPosition > 380 ? { background: "rgba(22, 32, 44, 1)" } : null
+          }
+          className="fixed top-0 z-20 w-screen h-16 rounded-b-3xl transition duration-500"
+        >
+          <div className="flex justify-between mt-5 mx-6">
             <img src={logo2} alt="" className="w-10" />
             <Link to="/">
               <HiArrowLeft className="w-6 h-6 text-white" />
