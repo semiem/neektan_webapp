@@ -1,6 +1,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import "../Common/SliderStyle.css";
+import "./SliderStyle.css";
 import { HiHome, HiOutlinePlus } from "react-icons/hi";
 import { RxLapTimer } from "react-icons/rx";
 import { MdOutlineInsertChartOutlined } from "react-icons/md";
@@ -98,9 +98,16 @@ export default function LandingPage({ isExit }) {
         </Swiper>
       </div>
 
-      <div className="mt-4">
-        <div className="mr-4 mb-2 font-iran text-white font-bold text-xl">
-          سایر
+      <div className="mt-6">
+        <div className="flex justify-between mx-4">
+          <div className="mb-2 font-iran text-white font-bold text-xl">
+            کاوش
+          </div>
+          <Link to="/Explore">
+            <div className="text-sky-500 text-sm font-normal font-iran">
+              دیدن بیشتر
+            </div>
+          </Link>
         </div>
         <Swiper
           slidesPerView={"auto"}

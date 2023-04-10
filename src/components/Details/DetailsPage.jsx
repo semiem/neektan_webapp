@@ -8,8 +8,8 @@ import logo2 from "../../assets/images/127.png";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import "../Common/SliderStyleDetails.css";
 import { Pagination } from "swiper";
+import "./SliderStyleDetails.css";
 
 import { CiStar } from "react-icons/ci";
 import { RiPlayListAddLine } from "react-icons/ri";
@@ -97,10 +97,16 @@ export default function DetailsPage() {
             {sportData.activities[0].title}
           </div>
           <div className="text-white font-iran mt-4 mr-4 text-lg font-light">
-            توضیحات بیشتر
+            توضیحات حرکت
           </div>
           <div className="text-violet-200 font-iran mx-4 text-sm font-light text-justify">
             {sportData.activities[0].description}
+          </div>
+          <div className="text-white font-iran mt-4 mr-4 text-lg font-light">
+            لوازم مورد نیاز
+          </div>
+          <div className="text-violet-200 font-iran mx-4 text-sm font-light text-justify">
+            {sportData.activities[0].accessories}
           </div>
           <div className="text-white font-iran mt-4 mr-4 text-lg font-light">
             هدف حرکت

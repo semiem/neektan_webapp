@@ -23,12 +23,7 @@ const result = [
           "Set-up - Place 3 Pods in a triangle.\nDistances - 2m between the Pods.\nStarting position - stand with ball in hands and cone on the floor next to the\nhome base Pod.\nStructure - Dribble the basketball at all times. When a surrounding Pod\nlights up, pick up the cone and move it next to the lit Pod,then return it\nand place it next to the home base Pod. Wait for the next Pod to light up\nand repeat till the drill ends.",
         poster: poster1,
         slides: [video1, slide11, slide12],
-        accessories: [
-          "Basketball",
-          "Basketballhoop",
-          "Cone",
-          "BlazoPod ConoAdaptcr",
-        ],
+        accessories: ["Cone"],
         activityGoals: ["Ball Skills", "Decition Marking", "Reaction Time"],
         setup: {
           podPerStation: 4,
