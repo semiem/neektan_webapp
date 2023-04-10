@@ -14,27 +14,43 @@ import "./SliderStyleDetails.css";
 import { CiStar } from "react-icons/ci";
 import { RiPlayListAddLine } from "react-icons/ri";
 import { HiArrowLeft, HiOutlinePlusSm, HiOutlineMinusSm } from "react-icons/hi";
-import { BsRepeat } from "react-icons/bs";
+import { BsRepeat, BsFlag } from "react-icons/bs";
 import { BiInfoCircle } from "react-icons/bi";
 
 import { getDataById } from "../../core/dataFieldAPI";
 
 export default function DetailsPage() {
+  // Handle URL Params
   const params = useParams();
   const sportData = getDataById(parseInt(params.id));
 
+  // Handle Cycles
   const [counter, setCounter] = useState(1);
 
-  const handlePlus = () => {
+  const handlePlusCounter = () => {
     setCounter(counter + 1);
   };
 
-  const handleMinus = () => {
+  const handleMinusCounter = () => {
     if (counter > 1) {
       setCounter(counter - 1);
     }
   };
 
+  // Handle Stations
+  const [stations, setStations] = useState(1);
+
+  const handlePlusStations = () => {
+    setStations(stations + 1);
+  };
+
+  const handleMinusStations = () => {
+    if (stations > 1) {
+      setStations(stations - 1);
+    }
+  };
+
+  // Handle Scroll Positions
   const [scrollPosition, setScrollPosition] = useState(0);
 
   const handleScroll = () => {
@@ -121,23 +137,117 @@ export default function DetailsPage() {
               </div>
             ))}
           </div>
+          <div>
+            <div className="text-white font-iran mt-6 mr-4 text-lg font-light mb-2">
+              مقدمات حرکت
+            </div>
+            <Swiper
+              slidesPerView={"auto"}
+              spaceBetween={10}
+              className="mySwiper swiper3 mb-4"
+            >
+              <SwiperSlide className="slider2 rounded-xl bg-white/5 slider3">
+                <div>
+                  <span className="flex justify-start my-1 text-white font-iran">
+                    {sportData.activities[0].setup.podPerStation}
+                  </span>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide className="slider2 rounded-xl bg-white/5 slider3">
+                <div>
+                  <span className="flex justify-start my-1 text-white font-iran">
+                    {sportData.activities[0].setup.colors}
+                  </span>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide className="slider2 rounded-xl bg-white/5 slider3">
+                <div>
+                  <span className="flex justify-start my-1 text-white font-iran">
+                    {sportData.activities[0].setup.duration}
+                  </span>
+                </div>
+              </SwiperSlide>
+            </Swiper>
+          </div>
+          <div>
+            <div className="text-white font-iran mt-4 mr-4 text-lg font-light mb-2">
+              کرنر
+            </div>
+            <Swiper
+              slidesPerView={"auto"}
+              spaceBetween={10}
+              className="mySwiper swiper3 mb-4"
+            >
+              <SwiperSlide className="slider2 rounded-xl bg-white/5 slider3">
+                <div>
+                  <span className="flex justify-start my-1 text-white font-iran">
+                    {sportData.activities[0].rules[0].lightOut.type}
+                  </span>
+                  <span className="flex justify-start my-1 text-white font-iran">
+                    {sportData.activities[0].rules[0].lightOut.time}
+                  </span>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide className="slider2 rounded-xl bg-white/5 slider3">
+                <div>
+                  <span className="flex justify-start my-1 text-white font-iran">
+                    {sportData.activities[0].rules[0].lightDelay.type}
+                  </span>
+                  <span className="flex justify-start my-1 text-white font-iran">
+                    {sportData.activities[0].rules[0].lightDelay.time}
+                  </span>
+                </div>
+              </SwiperSlide>
+            </Swiper>
+          </div>
+          <div>
+            <div className="text-white font-iran mt-4 mr-4 text-lg font-light mb-2">
+              زمین بازی
+            </div>
+            <Swiper
+              slidesPerView={"auto"}
+              spaceBetween={10}
+              className="mySwiper swiper3 mb-6"
+            >
+              <SwiperSlide className="slider2 rounded-xl bg-white/5 slider3">
+                <div>
+                  <span className="flex justify-start my-1 text-white font-iran">
+                    {sportData.activities[0].rules[1].lightOut.type}
+                  </span>
+                  <span className="flex justify-start my-1 text-white font-iran">
+                    {sportData.activities[0].rules[1].lightOut.time}
+                  </span>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide className="slider2 rounded-xl bg-white/5 slider3">
+                <div>
+                  <span className="flex justify-start my-1 text-white font-iran">
+                    {sportData.activities[0].rules[1].lightDelay.type}
+                  </span>
+                  <span className="flex justify-start my-1 text-white font-iran">
+                    {sportData.activities[0].rules[1].lightDelay.time}
+                  </span>
+                </div>
+              </SwiperSlide>
+            </Swiper>
+          </div>
         </div>
       </div>
-      {/* End Slider */}
+      {/* End Details */}
       <div className="relative -top-5 w-screen h-fit">
-        {/* Start Counter */}
-        <div className="flex justify-around items-center w-full h-20 bg-sky-500/10 mt-4">
+        {/* Start stations */}
+        <div className="flex justify-around items-center w-full h-20 bg-sky-500/10 mt-8">
           <div className="flex justify-between items-center w-36 h-10">
-            <BsRepeat className="w-6 h-6" />
+            <BsFlag className="w-6 h-6" />
             <span className="font-iran text-base font-medium mx-2">
-              تکرار حرکت
+              ایستگاه ها
             </span>
             <BiInfoCircle className="w-4 h-4 text-xs cursor-pointer" />
           </div>
 
           <div className="w-40 h-14 flex justify-around items-center">
             <div
-              onClick={() => handlePlus()}
+              onClick={() => handlePlusCounter()}
               className="w-10 h-10 bg-white shadow-md rounded-md flex justify-center items-center cursor-pointer"
             >
               <HiOutlinePlusSm className="w-6 h-6 text-gray-600" />
@@ -146,7 +256,7 @@ export default function DetailsPage() {
               {counter}
             </div>
             <div
-              onClick={() => handleMinus()}
+              onClick={() => handleMinusCounter()}
               className={
                 counter > 1
                   ? "w-10 h-10 bg-white shadow-md rounded-md flex justify-center items-center cursor-pointer"
@@ -157,7 +267,40 @@ export default function DetailsPage() {
             </div>
           </div>
         </div>
-        {/* End Counter */}
+        {/* End stations */}
+        {/* Start cycles */}
+        <div className="flex justify-around items-center w-full h-20 bg-sky-500/10 mt-8">
+          <div className="flex justify-between items-center w-36 h-10">
+            <BsRepeat className="w-6 h-6" />
+            <span className="font-iran text-base font-medium mx-2">
+              تکرار حرکت
+            </span>
+            <BiInfoCircle className="w-4 h-4 text-xs cursor-pointer" />
+          </div>
+
+          <div className="w-40 h-14 flex justify-around items-center">
+            <div
+              onClick={() => handlePlusStations()}
+              className="w-10 h-10 bg-white shadow-md rounded-md flex justify-center items-center cursor-pointer"
+            >
+              <HiOutlinePlusSm className="w-6 h-6 text-gray-600" />
+            </div>
+            <div className="w-10 h-10 flex justify-center items-center">
+              {stations}
+            </div>
+            <div
+              onClick={() => handleMinusStations()}
+              className={
+                stations > 1
+                  ? "w-10 h-10 bg-white shadow-md rounded-md flex justify-center items-center cursor-pointer"
+                  : "w-10 h-10 bg-white shadow-md rounded-md flex justify-center items-center cursor-pointer opacity-40"
+              }
+            >
+              <HiOutlineMinusSm className="w-6 h-6 text-gray-600" />
+            </div>
+          </div>
+        </div>
+        {/* End Cycles */}
 
         <div className="mt-4 flex justify-around">
           <button

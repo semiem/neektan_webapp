@@ -111,7 +111,7 @@ const result = [
         activityGoals: ["Core", "Power", "Strengh"],
         setup: {
           podPerStation: 3,
-          playerPerStation: 1,
+          duration: "30 Sec.",
           colors: 1,
         },
         rules: [
@@ -125,7 +125,17 @@ const result = [
               type: "None",
               time: null,
             },
-            duration: "30 Sec.",
+          },
+          {
+            title: "Home Base Pod",
+            lightOut: {
+              type: "Hit",
+              time: null,
+            },
+            lightDelay: {
+              type: "None",
+              time: null,
+            },
           },
         ],
       },
@@ -140,7 +150,7 @@ const result = [
         activityGoals: ["Power", "Reaction Time", "Stamina"],
         setup: {
           podPerStation: 3,
-          playerPerStation: 1,
+          duration: "30 Sec.",
           colors: 1,
         },
         rules: [
@@ -154,7 +164,17 @@ const result = [
               type: "Fixed",
               time: "1 Sec.",
             },
-            duration: "30 Sec.",
+          },
+          {
+            title: "Home Base Pod",
+            lightOut: {
+              type: "Hit",
+              time: null,
+            },
+            lightDelay: {
+              type: "None",
+              time: null,
+            },
           },
         ],
       },
@@ -171,11 +191,11 @@ const result = [
           "Set-up - Place 6 Pods on the floor in two rows of 3.\nDistances - 1-2m between the rows and 50 cm between the Pods in the same row. (distances will vary due to difficulty levels.\nStarting position - Player ready on all 4's with only hands and feet touching the floor (a crawl position), in between the two rows of Pods.\nStructure - The player must only touch the ground with their hands and feet throughout the whole drill. When a Pod lights up, turn your body, kick the leg furthest away from the Pod that lit up, under the body and tap out the Pod only using the heel of the foot. Return to starting position and repeat.\nMake sure to keep the core strong and engaged throughout... and breathe!",
         poster: poster3,
         slides: [video3, slide31, slide32],
-        accessories: null,
+        accessories: ["no accessories"],
         activityGoals: ["Coordination", "Core", "Strengh"],
         setup: {
           podPerStation: 6,
-          playerPerStation: 1,
+          duration: "30 Sec.",
           colors: 1,
         },
         rules: [
@@ -189,7 +209,17 @@ const result = [
               type: "None",
               time: null,
             },
-            duration: "30 Sec.",
+          },
+          {
+            title: "Home Base Pod",
+            lightOut: {
+              type: "Hit",
+              time: null,
+            },
+            lightDelay: {
+              type: "None",
+              time: null,
+            },
           },
         ],
       },
