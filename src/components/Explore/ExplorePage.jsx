@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import { HiArrowLeft, HiSearch } from "react-icons/hi";
 import logo from "../../assets/images/127.png";
 import { useState } from "react";
+import ActivitiesPage from "./ActivitiesPage";
+import CollectionsPage from "./CollectionsPage";
 
 export default function ExplorePage() {
   const tabs = [{ name: "فعالیت ها" }, { name: "دسته بندی" }];
@@ -71,7 +73,13 @@ export default function ExplorePage() {
       </div>
       {/* End Search */}
       {/* Start Details */}
-      <div></div>
+      <div>
+        {label.includes(tabs[0].name) ? (
+          <ActivitiesPage />
+        ) : (
+          <CollectionsPage />
+        )}
+      </div>
     </div>
   );
 }

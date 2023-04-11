@@ -1,15 +1,18 @@
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "./SliderStyle.css";
+
 import { HiHome, HiOutlinePlus } from "react-icons/hi";
 import { RxLapTimer } from "react-icons/rx";
 import { MdOutlineInsertChartOutlined } from "react-icons/md";
 import { SlSettings } from "react-icons/sl";
-import { Link } from "react-router-dom";
 import { ImExit } from "react-icons/im";
-import { clearStorage } from "../../core/services/LocalStorage";
+
 import avatar from "../../assets/images/126.png";
-import React, { useState } from "react";
+import { clearStorage } from "../../core/services/LocalStorage";
 import { getAllData } from "../../core/dataFieldAPI";
 
 export default function LandingPage({ isExit }) {
