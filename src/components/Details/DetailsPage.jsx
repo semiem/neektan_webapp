@@ -66,10 +66,10 @@ export default function DetailsPage() {
   }, []);
 
   return (
-    <div>
+    <div className="overflow-x-hidden">
       <div>
         <Swiper pagination={true} modules={[Pagination]} className="mySwiper">
-          {sportData.activities[0].slides.map((data, index) => (
+          {sportData.slides.map((data, index) => (
             <SwiperSlide key={index}>
               <img src={data} alt="" />
             </SwiperSlide>
@@ -110,25 +110,25 @@ export default function DetailsPage() {
             نام حرکت
           </div>
           <div className="text-white font-iran mr-4 text-lg font-medium">
-            {sportData.activities[0].title}
+            {sportData.title}
           </div>
           <div className="text-white font-iran mt-4 mr-4 text-lg font-light">
             توضیحات حرکت
           </div>
           <div className="text-violet-200 font-iran mx-4 text-sm font-light text-justify">
-            {sportData.activities[0].description}
+            {sportData.description}
           </div>
           <div className="text-white font-iran mt-4 mr-4 text-lg font-light">
             لوازم مورد نیاز
           </div>
           <div className="text-violet-200 font-iran mx-4 text-sm font-light text-justify">
-            {sportData.activities[0].accessories}
+            {sportData.accessories}
           </div>
           <div className="text-white font-iran mt-4 mr-4 text-lg font-light">
             هدف حرکت
           </div>
           <div className="flex justify-start mt-1 mb-4">
-            {sportData.activities[0].activityGoals.map((activeGoal, index) => (
+            {sportData.activityGoals.map((activeGoal, index) => (
               <div
                 key={index}
                 className="font-iran text-white text-sm border border-white w-fit p-1 mr-3 rounded-full bg-slate-700/50"
@@ -149,21 +149,21 @@ export default function DetailsPage() {
               <SwiperSlide className="slider2 rounded-xl bg-white/5 slider3">
                 <div>
                   <span className="flex justify-start my-1 text-white font-iran">
-                    {sportData.activities[0].setup.podPerStation}
+                    {sportData.setup.podPerStation}
                   </span>
                 </div>
               </SwiperSlide>
               <SwiperSlide className="slider2 rounded-xl bg-white/5 slider3">
                 <div>
                   <span className="flex justify-start my-1 text-white font-iran">
-                    {sportData.activities[0].setup.colors}
+                    {sportData.setup.colors}
                   </span>
                 </div>
               </SwiperSlide>
               <SwiperSlide className="slider2 rounded-xl bg-white/5 slider3">
                 <div>
                   <span className="flex justify-start my-1 text-white font-iran">
-                    {sportData.activities[0].setup.duration}
+                    {sportData.setup.duration}
                   </span>
                 </div>
               </SwiperSlide>
@@ -181,20 +181,20 @@ export default function DetailsPage() {
               <SwiperSlide className="slider2 rounded-xl bg-white/5 slider3">
                 <div>
                   <span className="flex justify-start my-1 text-white font-iran">
-                    {sportData.activities[0].rules[0].lightOut.type}
+                    {sportData.rules[0].lightOut.type}
                   </span>
                   <span className="flex justify-start my-1 text-white font-iran">
-                    {sportData.activities[0].rules[0].lightOut.time}
+                    {sportData.rules[0].lightOut.time}
                   </span>
                 </div>
               </SwiperSlide>
               <SwiperSlide className="slider2 rounded-xl bg-white/5 slider3">
                 <div>
                   <span className="flex justify-start my-1 text-white font-iran">
-                    {sportData.activities[0].rules[0].lightDelay.type}
+                    {sportData.rules[0].lightDelay.type}
                   </span>
                   <span className="flex justify-start my-1 text-white font-iran">
-                    {sportData.activities[0].rules[0].lightDelay.time}
+                    {sportData.rules[0].lightDelay.time}
                   </span>
                 </div>
               </SwiperSlide>
@@ -212,20 +212,20 @@ export default function DetailsPage() {
               <SwiperSlide className="slider2 rounded-xl bg-white/5 slider3">
                 <div>
                   <span className="flex justify-start my-1 text-white font-iran">
-                    {sportData.activities[0].rules[1].lightOut.type}
+                    {sportData.rules[1].lightOut.type}
                   </span>
                   <span className="flex justify-start my-1 text-white font-iran">
-                    {sportData.activities[0].rules[1].lightOut.time}
+                    {sportData.rules[1].lightOut.time}
                   </span>
                 </div>
               </SwiperSlide>
               <SwiperSlide className="slider2 rounded-xl bg-white/5 slider3">
                 <div>
                   <span className="flex justify-start my-1 text-white font-iran">
-                    {sportData.activities[0].rules[1].lightDelay.type}
+                    {sportData.rules[1].lightDelay.type}
                   </span>
                   <span className="flex justify-start my-1 text-white font-iran">
-                    {sportData.activities[0].rules[1].lightDelay.time}
+                    {sportData.rules[1].lightDelay.time}
                   </span>
                 </div>
               </SwiperSlide>

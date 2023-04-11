@@ -19,6 +19,8 @@ export default function LandingPage({ isExit }) {
     clearStorage();
   };
 
+  console.log(datas);
+
   return (
     <div
       className="h-screen w-screen overflow-x-hidden"
@@ -85,7 +87,7 @@ export default function LandingPage({ isExit }) {
               <Link to={`/Detail/${data.id}`}>
                 <img
                   style={{ width: "40vh", height: "25vh" }}
-                  src={data.activities[0].poster}
+                  src={data.poster}
                   className="relative rounded-xl"
                   alt=""
                 />
@@ -119,7 +121,7 @@ export default function LandingPage({ isExit }) {
               <Link to={`/Detail/${data.id}`}>
                 <div>
                   <img
-                    src={data.activities[0].poster}
+                    src={data.poster}
                     style={{ width: "40vh", height: "20vh" }}
                     className="rounded-xl"
                     alt=""
