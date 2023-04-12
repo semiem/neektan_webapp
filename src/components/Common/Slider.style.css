@@ -57,8 +57,8 @@ body {
 }
 
 .slider1 {
-    width: 40vh !important;
-    height: 25vh !important;
+    width: 38vh !important;
+    height: 23vh !important;
     border-radius: 20px !important;
 }
 
@@ -80,11 +80,11 @@ body {
 }
 
 .borderimage{
-    width: 40vh !important;
-    height: 25vh !important;
+    width: 38vh !important;
+    height: 23vh !important;
 }
 
 .borderimage2{
     width: 25vh !important;
-    height: 20vh !important;
+    height: 18vh !important;
 }

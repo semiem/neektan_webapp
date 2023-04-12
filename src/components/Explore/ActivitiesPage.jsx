@@ -7,7 +7,7 @@ import logo from "../../assets/images/130.png";
 
 export default function ActivitiesPage() {
   const datas = getAllData();
-  console.log(datas);
+
   return (
     <div className="mt-5">
       {datas.map((data, index) => (

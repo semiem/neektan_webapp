@@ -66,7 +66,7 @@ export default function DetailsPage() {
   }, []);
 
   return (
-    <div className="overflow-x-hidden">
+    <div style={{ background: "#f1f4fb" }} className="overflow-x-hidden">
       <div>
         <Swiper pagination={true} modules={[Pagination]} className="mySwiper">
           {sportData.slides.map((data, index) => (
@@ -76,9 +76,7 @@ export default function DetailsPage() {
           ))}
         </Swiper>
         <div
-          style={
-            scrollPosition > 380 ? { background: "rgba(22, 32, 44, 1)" } : null
-          }
+          style={scrollPosition > 380 ? { background: "#04192F" } : null}
           className="fixed top-0 z-20 w-screen h-16 rounded-b-3xl transition duration-300"
         >
           <div className="flex justify-between mt-5 mx-6">
@@ -93,8 +91,7 @@ export default function DetailsPage() {
       <div
         className="relative -top-5 z-10 w-screen h-fit rounded-3xl border border-transparent"
         style={{
-          background:
-            "linear-gradient(180deg, rgba(40,85,152,1) 0%, rgba(23,35,61,1) 35%, rgba(22,32,44,1) 48%)",
+          background: "#04192F",
         }}
       >
         <div className="flex justify-between items-center w-full h-16 border border-transparent">
@@ -146,7 +143,7 @@ export default function DetailsPage() {
               spaceBetween={10}
               className="mySwiper swiper3 mb-4"
             >
-              <SwiperSlide className="rounded-xl bg-white/5 slider3">
+              <SwiperSlide className="rounded-xl bg-white/5 slider3 mr-2">
                 <div>
                   <span className="flex justify-start my-1 text-white font-iran">
                     {sportData.setup.podPerStation}
@@ -178,7 +175,7 @@ export default function DetailsPage() {
               spaceBetween={10}
               className="mySwiper mb-4"
             >
-              <SwiperSlide className="slider3 rounded-xl bg-white/5">
+              <SwiperSlide className="slider3 rounded-xl bg-white/5 mr-2">
                 <div>
                   <span className="flex justify-start my-1 text-white font-iran">
                     {sportData.rules[0].lightOut.type}
@@ -209,7 +206,7 @@ export default function DetailsPage() {
               spaceBetween={10}
               className="mySwiper swiper3 mb-6"
             >
-              <SwiperSlide className="rounded-xl bg-white/5 slider3">
+              <SwiperSlide className="rounded-xl bg-white/5 slider3 mr-2">
                 <div>
                   <span className="flex justify-start my-1 text-white font-iran">
                     {sportData.rules[1].lightOut.type}
@@ -236,7 +233,10 @@ export default function DetailsPage() {
       {/* End Details */}
       <div className="relative -top-5 w-screen h-fit">
         {/* Start stations */}
-        <div className="flex justify-around items-center w-full h-20 bg-sky-500/10 mt-8">
+        <div
+          style={{ background: "#e2e9f1" }}
+          className="flex justify-around items-center w-full h-20 mt-8"
+        >
           <div className="flex justify-between items-center w-36 h-10">
             <BsFlag className="w-6 h-6" />
             <span className="font-iran text-base font-medium mx-2">
@@ -269,7 +269,10 @@ export default function DetailsPage() {
         </div>
         {/* End stations */}
         {/* Start cycles */}
-        <div className="flex justify-around items-center w-full h-20 bg-sky-500/10 mt-8">
+        <div
+          style={{ background: "#e2e9f1" }}
+          className="flex justify-around items-center w-full h-20 mt-8"
+        >
           <div className="flex justify-between items-center w-36 h-10">
             <BsRepeat className="w-6 h-6" />
             <span className="font-iran text-base font-medium mx-2">

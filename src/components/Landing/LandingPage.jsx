@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -16,7 +15,7 @@ import { clearStorage } from "../../core/services/LocalStorage";
 import { getAllData } from "../../core/dataFieldAPI";
 
 export default function LandingPage({ isExit }) {
-  const [datas] = useState(getAllData);
+  const datas = getAllData();
   const handleExit = () => {
     isExit();
     clearStorage();
@@ -26,8 +25,7 @@ export default function LandingPage({ isExit }) {
     <div
       className="h-screen w-screen overflow-x-hidden"
       style={{
-        background:
-          "linear-gradient(180deg, rgba(40,85,152,1) 0%, rgba(23,35,61,1) 35%, rgba(22,32,44,1) 48%)",
+        background: "#132037",
       }}
     >
       <div className="border border-transparent w-screen h-20">
@@ -98,9 +96,7 @@ export default function LandingPage({ isExit }) {
 
       <div className="mt-6">
         <div className="flex justify-between mx-4">
-          <div className="mb-2 font-iran text-white font-bold text-xl">
-            کاوش
-          </div>
+          <div className="font-iran text-white font-bold text-xl">کاوش</div>
           <Link to="/Explore">
             <div className="text-sky-500 text-sm font-normal font-iran">
               دیدن بیشتر

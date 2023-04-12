@@ -17,8 +17,7 @@ export default function ExplorePage() {
     <div
       className="h-screen w-screen overflow-x-hidden"
       style={{
-        background:
-          "linear-gradient(180deg, rgba(40,85,152,1) 0%, rgba(23,35,61,1) 35%, rgba(22,32,44,1) 48%)",
+        background: "#132037",
       }}
     >
       <div>
@@ -40,7 +39,7 @@ export default function ExplorePage() {
                     key={tab.name}
                     className={classNames(
                       label === tab.name
-                        ? "border-sky-500 text-white bg-gradient-to-b from-blue-950 to-blue-800"
+                        ? "border-sky-500 text-white bg-blue-950"
                         : "border-transparent text-white opacity-30",
                       "group items-center py-4 px-16 border-b-2 font-medium text-sm font-iran cursor-pointer"
                     )}
