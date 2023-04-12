@@ -9,7 +9,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper";
-import "./SliderStyleDetails.css";
+import "../Common/Slider.style.css";
 
 import { CiStar } from "react-icons/ci";
 import { RiPlayListAddLine } from "react-icons/ri";
@@ -79,7 +79,7 @@ export default function DetailsPage() {
           style={
             scrollPosition > 380 ? { background: "rgba(22, 32, 44, 1)" } : null
           }
-          className="fixed top-0 z-20 w-screen h-16 rounded-b-3xl transition duration-500"
+          className="fixed top-0 z-20 w-screen h-16 rounded-b-3xl transition duration-300"
         >
           <div className="flex justify-between mt-5 mx-6">
             <img src={logo2} alt="" className="w-10" />
@@ -146,21 +146,21 @@ export default function DetailsPage() {
               spaceBetween={10}
               className="mySwiper swiper3 mb-4"
             >
-              <SwiperSlide className="slider2 rounded-xl bg-white/5 slider3">
+              <SwiperSlide className="rounded-xl bg-white/5 slider3">
                 <div>
                   <span className="flex justify-start my-1 text-white font-iran">
                     {sportData.setup.podPerStation}
                   </span>
                 </div>
               </SwiperSlide>
-              <SwiperSlide className="slider2 rounded-xl bg-white/5 slider3">
+              <SwiperSlide className="rounded-xl bg-white/5 slider3">
                 <div>
                   <span className="flex justify-start my-1 text-white font-iran">
                     {sportData.setup.colors}
                   </span>
                 </div>
               </SwiperSlide>
-              <SwiperSlide className="slider2 rounded-xl bg-white/5 slider3">
+              <SwiperSlide className="rounded-xl bg-white/5 slider3">
                 <div>
                   <span className="flex justify-start my-1 text-white font-iran">
                     {sportData.setup.duration}
@@ -176,9 +176,9 @@ export default function DetailsPage() {
             <Swiper
               slidesPerView={"auto"}
               spaceBetween={10}
-              className="mySwiper swiper3 mb-4"
+              className="mySwiper mb-4"
             >
-              <SwiperSlide className="slider2 rounded-xl bg-white/5 slider3">
+              <SwiperSlide className="slider3 rounded-xl bg-white/5">
                 <div>
                   <span className="flex justify-start my-1 text-white font-iran">
                     {sportData.rules[0].lightOut.type}
@@ -188,7 +188,7 @@ export default function DetailsPage() {
                   </span>
                 </div>
               </SwiperSlide>
-              <SwiperSlide className="slider2 rounded-xl bg-white/5 slider3">
+              <SwiperSlide className="rounded-xl bg-white/5 slider3">
                 <div>
                   <span className="flex justify-start my-1 text-white font-iran">
                     {sportData.rules[0].lightDelay.type}
@@ -209,7 +209,7 @@ export default function DetailsPage() {
               spaceBetween={10}
               className="mySwiper swiper3 mb-6"
             >
-              <SwiperSlide className="slider2 rounded-xl bg-white/5 slider3">
+              <SwiperSlide className="rounded-xl bg-white/5 slider3">
                 <div>
                   <span className="flex justify-start my-1 text-white font-iran">
                     {sportData.rules[1].lightOut.type}
@@ -219,7 +219,7 @@ export default function DetailsPage() {
                   </span>
                 </div>
               </SwiperSlide>
-              <SwiperSlide className="slider2 rounded-xl bg-white/5 slider3">
+              <SwiperSlide className="rounded-xl bg-white/5 slider3">
                 <div>
                   <span className="flex justify-start my-1 text-white font-iran">
                     {sportData.rules[1].lightDelay.type}

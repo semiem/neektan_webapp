@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import "./SliderStyle.css";
+import "../Common/Slider.style.css";
 
 import { HiHome, HiOutlinePlus } from "react-icons/hi";
 import { RxLapTimer } from "react-icons/rx";
@@ -21,8 +21,6 @@ export default function LandingPage({ isExit }) {
     isExit();
     clearStorage();
   };
-
-  console.log(datas);
 
   return (
     <div
@@ -80,21 +78,16 @@ export default function LandingPage({ isExit }) {
         <div className="mr-4 mb-2 mt-4 font-iran text-white font-bold text-xl">
           پیشنهادات
         </div>
-        <Swiper
-          slidesPerView={"auto"}
-          spaceBetween={20}
-          className="mySwiper swiper3"
-        >
+        <Swiper slidesPerView={"auto"} spaceBetween={20} className="mySwiper">
           {datas.map((data, index) => (
-            <SwiperSlide key={index}>
+            <SwiperSlide key={index} className="slider1">
               <Link to={`/Detail/${data.id}`}>
                 <img
-                  style={{ width: "40vh", height: "25vh" }}
                   src={data.poster}
-                  className="relative rounded-xl"
+                  className="relative rounded-xl borderimage mr-4"
                   alt=""
                 />
-                <span className="absolute top-5 right-5 text-white font-iran">
+                <span className="absolute top-5 right-8 text-white font-iran">
                   {data.title}
                 </span>
               </Link>
@@ -117,7 +110,7 @@ export default function LandingPage({ isExit }) {
         <Swiper
           slidesPerView={"auto"}
           spaceBetween={20}
-          className="mySwiper swiper3 mb-20"
+          className="mySwiper mb-20"
         >
           {datas.map((data, index) => (
             <SwiperSlide key={index} className="slider2">
@@ -125,11 +118,10 @@ export default function LandingPage({ isExit }) {
                 <div>
                   <img
                     src={data.poster}
-                    style={{ width: "40vh", height: "20vh" }}
-                    className="rounded-xl"
+                    className="rounded-xl borderimage2 mr-4"
                     alt=""
                   />
-                  <span className="flex justify-start my-1 text-white font-iran">
+                  <span className="flex justify-start my-1 text-white font-iran mr-4">
                     {data.title}
                   </span>
                 </div>

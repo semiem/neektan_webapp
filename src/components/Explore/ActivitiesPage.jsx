@@ -1,6 +1,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import "./ExploreStyle.css";
+import "../Common/Slider.style.css";
 import { Link } from "react-router-dom";
 import { getAllData } from "../../core/dataActivitiesAPI";
 import logo from "../../assets/images/130.png";
@@ -15,9 +15,9 @@ export default function ActivitiesPage() {
           <div className="font-iran mt-8 mr-4 mb-2 text-white font-bold text-lg">
             {data.title}
           </div>
-          <Swiper slidesPerView={"auto"} spaceBetween={20} className="mySwiper">
+          <Swiper slidesPerView={"auto"} spaceBetween={10} className="mySwiper">
             {data.activities.map((da, ind) => (
-              <SwiperSlide key={ind} className="slider5">
+              <SwiperSlide key={ind} className="slider4">
                 <Link to={`/Detail/${da.id}`}>
                   <img
                     src={da.poster}

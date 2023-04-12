@@ -1,0 +1,90 @@
+#app {
+    height: 100%;
+}
+
+html,
+body {
+    position: relative;
+    height: 100%;
+}
+
+body {
+    background: #eee;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #000;
+    margin: 0;
+    padding: 0;
+}
+
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    /* background: #fff; */
+
+    /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* Custom Css */
+
+.swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
+    bottom: var(--swiper-pagination-bottom,35px) !important;
+}
+
+.swiper-pagination-bullet {
+    background: #fff;
+}
+
+.swiper-pagination-bullet-active {
+    opacity: var(--swiper-pagination-bullet-opacity, 1);
+    background: #007aff;
+}
+
+.slider1 {
+    width: 40vh !important;
+    height: 25vh !important;
+    border-radius: 20px !important;
+}
+
+.slider2 {
+    width: 25vh !important;
+    height: 25vh !important;
+}
+
+.slider3{
+    width:16vh;
+    height:11vh;
+}
+  
+.slider4{
+    display: block; 
+    float: right; 
+    width: 38vh;
+    margin-right: 20px;
+}
+
+.borderimage{
+    width: 40vh !important;
+    height: 25vh !important;
+}
+
+.borderimage2{
+    width: 25vh !important;
+    height: 20vh !important;
+}
