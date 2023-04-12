@@ -24,14 +24,14 @@ export default function ActivitiesPage() {
                     alt=""
                     className="img5"
                     style={{
-                      width: "16vh",
-                      height: "11vh",
+                      width: "23vh",
+                      height: "18vh",
                       borderRadius: "10px",
                       display: "block",
                       float: "right",
                     }}
                   />
-                  <div className="mt-3">
+                  <div className="mt-5">
                     <div className="font-iran text-white font-xs mr-2">
                       <img
                         src={logo}

@@ -57,7 +57,7 @@ const result = [
       },
       {
         id: 102,
-        title: "PenetrateOrShoot",
+        title: "Penetrate Or Shoot",
         description:
           "Set-up - PlaceI surrounding Pod on the free throw line and one surrounding Pod on each short\ncorner area. Plomtho home base Pod at thotop oftho D on a cone.\nStarting Position - Players stands with the ball next to the home base Pod with their back to the\nbasket.\nStructure - When the activity begins the player turns and dribbles straight to the lit Pod.\nIf Ist color, pulls up and shoots.\nIf 2nd color, penetrates to the basket for a layup.\nThe player then collects the ball and heads back to the home base Pod, taps the Pod and turns to\nrepeat the drilL",
         poster: poster1,

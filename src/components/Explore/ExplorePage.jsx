@@ -41,7 +41,7 @@ export default function ExplorePage() {
                       label === tab.name
                         ? "border-sky-500 text-white bg-blue-950"
                         : "border-transparent text-white opacity-30",
-                      "group items-center py-4 px-16 border-b-2 font-medium text-sm font-iran cursor-pointer"
+                      "group items-center py-4 px-14 border-b-2 font-medium text-sm font-iran cursor-pointer"
                     )}
                   >
                     <span>{tab.name}</span>
