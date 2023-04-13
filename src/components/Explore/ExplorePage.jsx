@@ -20,7 +20,12 @@ export default function ExplorePage() {
         background: "#132037",
       }}
     >
-      <div>
+      <div
+        className="fixed z-10 w-screen"
+        style={{
+          background: "#132037",
+        }}
+      >
         <div className="flex justify-between mt-5 mx-6">
           <img src={logo} alt="" className="w-10" />
           <div className="font-iran font-bold text-xl text-white">کاوش</div>
@@ -54,7 +59,7 @@ export default function ExplorePage() {
       </div>
       {/* End Tab */}
       {/* Start Search */}
-      <div className="flex-1 flex items-center justify-center px-2 lg:ml-6 lg:justify-end">
+      <div className="flex-1 flex items-center justify-center px-2 lg:ml-6 lg:justify-end mt-28">
         <div className="max-w-lg w-full lg:max-w-xs mx-auto mt-4">
           <div className="relative">
             <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">

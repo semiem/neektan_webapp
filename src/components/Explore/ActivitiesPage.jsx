@@ -33,26 +33,31 @@ export default function ActivitiesPage() {
                   <img
                     src={da.poster}
                     alt=""
-                    className="img5"
                     style={{
                       width: "23vh",
-                      height: "18vh",
+                      height: "16vh",
                       borderRadius: "10px",
                       display: "block",
                       float: "right",
                     }}
                   />
                   <div className="mt-5">
-                    <div className="font-iran text-white font-xs mr-2">
-                      <img
-                        src={logo}
-                        alt=""
-                        style={{ width: "6vh" }}
-                        className="mx-auto"
-                      />
-                    </div>
-                    <div className="font-iran text-white font-xs mr-2">
+                    <img
+                      src={logo}
+                      alt=""
+                      style={{ width: "10vh", paddingRight: "15px" }}
+                    />
+                    <div
+                      className={
+                        da.title.length >= 20
+                          ? "float-right font-iran text-white font-xs mr-4 text-base font-semibold"
+                          : "float-right font-iran text-white font-xs mr-4 text-lg font-semibold"
+                      }
+                    >
                       {da.title}
+                    </div>
+                    <div className="float-right mr-4 text-white font-iran font-light text-xs">
+                      یک بازیکن &#x2022; شش پاد
                     </div>
                   </div>
                 </Link>
