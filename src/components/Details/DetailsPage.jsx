@@ -24,6 +24,8 @@ export default function DetailsPage() {
   const params = useParams();
   const sportData = getDataById(parseInt(params.id));
 
+  const [textControl, setTextControl] = useState(false);
+
   // Handle Cycles
   const [counter, setCounter] = useState(1);
 
@@ -113,13 +115,35 @@ export default function DetailsPage() {
             توضیحات حرکت
           </div>
           <div className="text-violet-200 font-iran mx-4 text-sm font-light text-justify">
-            {sportData.description}
+            {textControl === false && sportData.description.length > 250
+              ? sportData.description.slice(0, 250) + "..."
+              : sportData.description}
           </div>
+          {sportData.description.length > 250 ? (
+            <div>
+              {textControl === false ? (
+                <span
+                  onClick={() => setTextControl(true)}
+                  className="text-white underline font-iran text-xs font-light mr-4 cursor-pointer"
+                >
+                  توضیحات بیشتر
+                </span>
+              ) : (
+                <span
+                  onClick={() => setTextControl(false)}
+                  className="text-white underline font-iran text-xs font-light mr-4 cursor-pointer"
+                >
+                  بستن توضیحات
+                </span>
+              )}
+            </div>
+          ) : null}
+
           <div className="text-white font-iran mt-4 mr-4 text-lg font-light">
             لوازم مورد نیاز
           </div>
           <div className="text-violet-200 font-iran mx-4 text-sm font-light text-justify">
-            {sportData.accessories}
+            {sportData.accessories + " "}
           </div>
           <div className="text-white font-iran mt-4 mr-4 text-lg font-light">
             هدف حرکت
@@ -128,7 +152,7 @@ export default function DetailsPage() {
             {sportData.activityGoals.map((activeGoal, index) => (
               <div
                 key={index}
-                className="font-iran text-white text-sm border border-white w-fit p-1 mr-3 rounded-full bg-slate-700/50"
+                className="font-iran text-white text-xs font-normal border border-white w-fit py-1.5 px-4 mr-3 rounded-full bg-white/5"
               >
                 {activeGoal}
               </div>
@@ -159,7 +183,10 @@ export default function DetailsPage() {
               </SwiperSlide>
               <SwiperSlide className="rounded-xl bg-white/5 slider3">
                 <div>
-                  <span className="flex justify-start my-1 text-white font-iran">
+                  <span
+                    style={{ direction: "ltr" }}
+                    className="flex justify-start my-1 text-white font-iran"
+                  >
                     {sportData.setup.duration}
                   </span>
                 </div>
@@ -177,20 +204,26 @@ export default function DetailsPage() {
             >
               <SwiperSlide className="slider3 rounded-xl bg-white/5 mr-2">
                 <div>
-                  <span className="flex justify-start my-1 text-white font-iran">
+                  <span className="flex justify-center mt-1 text-white font-iran font-normal text-xl">
                     {sportData.rules[0].lightOut.type}
                   </span>
-                  <span className="flex justify-start my-1 text-white font-iran">
+                  <span
+                    style={{ direction: "ltr" }}
+                    className="flex justify-center text-white font-iran font-light text-xs"
+                  >
                     {sportData.rules[0].lightOut.time}
                   </span>
                 </div>
               </SwiperSlide>
               <SwiperSlide className="rounded-xl bg-white/5 slider3">
                 <div>
-                  <span className="flex justify-start my-1 text-white font-iran">
+                  <span className="flex justify-center mt-1 text-white font-iran font-normal text-xl">
                     {sportData.rules[0].lightDelay.type}
                   </span>
-                  <span className="flex justify-start my-1 text-white font-iran">
+                  <span
+                    style={{ direction: "ltr" }}
+                    className="flex justify-center text-white font-iran font-light text-xs"
+                  >
                     {sportData.rules[0].lightDelay.time}
                   </span>
                 </div>
@@ -208,20 +241,26 @@ export default function DetailsPage() {
             >
               <SwiperSlide className="rounded-xl bg-white/5 slider3 mr-2">
                 <div>
-                  <span className="flex justify-start my-1 text-white font-iran">
+                  <span className="flex justify-center mt-1 text-white font-iran font-normal text-xl">
                     {sportData.rules[1].lightOut.type}
                   </span>
-                  <span className="flex justify-start my-1 text-white font-iran">
+                  <span
+                    style={{ direction: "ltr" }}
+                    className="flex justify-center text-white font-iran font-light text-xs"
+                  >
                     {sportData.rules[1].lightOut.time}
                   </span>
                 </div>
               </SwiperSlide>
               <SwiperSlide className="rounded-xl bg-white/5 slider3">
                 <div>
-                  <span className="flex justify-start my-1 text-white font-iran">
+                  <span className="flex justify-center mt-1 text-white font-iran font-normal text-xl">
                     {sportData.rules[1].lightDelay.type}
                   </span>
-                  <span className="flex justify-start my-1 text-white font-iran">
+                  <span
+                    style={{ direction: "ltr" }}
+                    className="flex justify-center text-white font-iran font-light text-xs"
+                  >
                     {sportData.rules[1].lightDelay.time}
                   </span>
                 </div>

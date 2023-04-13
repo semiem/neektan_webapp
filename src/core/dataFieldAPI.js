@@ -94,12 +94,12 @@ const result = [
       {
         title: "Home Base Pod",
         lightOut: {
-          type: "Hit",
-          time: null,
+          type: "Timeout",
+          time: "2 sec.",
         },
         lightDelay: {
-          type: "None",
-          time: null,
+          type: "Fixed",
+          time: "0.5 sec.",
         },
       },
     ],
