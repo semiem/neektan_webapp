@@ -13,6 +13,7 @@ import { ImExit } from "react-icons/im";
 import avatar from "../../assets/images/126.png";
 import { clearStorage } from "../../core/services/LocalStorage";
 import { getAllData } from "../../core/dataFieldAPI";
+import logo from "../../assets/images/130.png";
 
 export default function LandingPage({ isExit }) {
   const datas = getAllData();
@@ -28,7 +29,12 @@ export default function LandingPage({ isExit }) {
         background: "#132037",
       }}
     >
-      <div className="border border-transparent w-screen h-20">
+      <div
+        style={{
+          background: "#132037",
+        }}
+        className="fixed border border-transparent w-screen h-20"
+      >
         <div className="flex justify-around items-center mt-4">
           <img src={avatar} alt="" className="w-12 rounded-full" />
           <div className="text-2xl font-iran text-white font-semibold">
@@ -41,7 +47,7 @@ export default function LandingPage({ isExit }) {
         </div>
       </div>
 
-      <div className="w-full h-40 border border-transparent">
+      <div className="w-full h-40 border border-transparent mt-20">
         <div className="mr-4 my-2 font-iran text-white font-bold text-xl">
           فعالیت های من
         </div>
@@ -85,8 +91,18 @@ export default function LandingPage({ isExit }) {
                   className="relative rounded-xl borderimage mr-4"
                   alt=""
                 />
-                <span className="absolute top-5 right-8 text-white font-iran">
+                <div className="overlayImage rounded-xl"></div>
+                <img
+                  src={logo}
+                  alt=""
+                  style={{ width: "9vh", height: "3vh" }}
+                  className="absolute top-5 right-8 text-white"
+                />
+                <span className="absolute top-12 right-8 text-white font-iran font-bold text-lg">
                   {data.title}
+                </span>
+                <span className="absolute top-28 right-8 text-white font-iran font-light text-xs">
+                  یک بازیکن &#x2022; شش پاد
                 </span>
               </Link>
             </SwiperSlide>
@@ -117,9 +133,26 @@ export default function LandingPage({ isExit }) {
                     className="rounded-xl borderimage2 mr-4"
                     alt=""
                   />
-                  <span className="flex justify-start my-1 text-white font-iran mr-4">
-                    {data.title}
-                  </span>
+                  <div>
+                    <img
+                      src={logo}
+                      alt=""
+                      style={{ width: "9vh", height: "3vh" }}
+                      className="text-white mr-4 mt-2"
+                    />
+                    <div
+                      className={
+                        data.title.length >= 20
+                          ? "float-right my-1 text-white font-iran text-xs mr-4"
+                          : "float-right my-1 text-white font-iran text-sm mr-4"
+                      }
+                    >
+                      {data.title}
+                    </div>
+                    <div className="float-right mr-4 text-white font-iran font-light text-xs">
+                      یک بازیکن &#x2022; شش پاد
+                    </div>
+                  </div>
                 </div>
               </Link>
             </SwiperSlide>
