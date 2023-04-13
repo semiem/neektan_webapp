@@ -72,7 +72,7 @@ export default function ExplorePage() {
       </div>
       {/* End Search */}
       {/* Start Details */}
-      <div>
+      <div className="mb-4">
         {label.includes(tabs[0].name) ? (
           <ActivitiesPage />
         ) : (

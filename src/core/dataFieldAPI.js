@@ -2,14 +2,26 @@ import poster1 from "../assets/images/blaze/MoveThatCone/Poster.png";
 import video1 from "../assets/images/blaze/MoveThatCone/Video1.png";
 import slide11 from "../assets/images/blaze/MoveThatCone/Slide1.png";
 import slide12 from "../assets/images/blaze/MoveThatCone/Slide2.png";
+
 import poster2 from "../assets/images/blaze/StepOverPressUps/Poster.png";
 import video2 from "../assets/images/blaze/StepOverPressUps/Video1.png";
 import slide21 from "../assets/images/blaze/StepOverPressUps/Slide1.png";
 import slide22 from "../assets/images/blaze/StepOverPressUps/Slide2.png";
+
 import poster3 from "../assets/images/blaze/BlazePodKickthroughs/Poster.png";
 import video3 from "../assets/images/blaze/BlazePodKickthroughs/Video1.png";
 import slide31 from "../assets/images/blaze/BlazePodKickthroughs/Slide1.png";
 import slide32 from "../assets/images/blaze/BlazePodKickthroughs/Slide2.png";
+
+import poster4 from "../assets/images/blaze/PenetradeOrShoot/Poster.png";
+import video4 from "../assets/images/blaze/PenetradeOrShoot/Video1.png";
+import slide41 from "../assets/images/blaze/PenetradeOrShoot/Slide1.png";
+import slide42 from "../assets/images/blaze/PenetradeOrShoot/Slide2.png";
+
+import poster5 from "../assets/images/blaze/ResistanceBandCatch/Poster.png";
+import video5 from "../assets/images/blaze/ResistanceBandCatch/Video1.png";
+import slide51 from "../assets/images/blaze/ResistanceBandCatch/Slide1.png";
+import slide52 from "../assets/images/blaze/ResistanceBandCatch/Slide2.png";
 
 const result = [
   {
@@ -58,8 +70,8 @@ const result = [
     title: "PenetrateOrShoot",
     description:
       "Set-up - PlaceI surrounding Pod on the free throw line and one surrounding Pod on each short\ncorner area. Plomtho home base Pod at thotop oftho D on a cone.\nStarting Position - Players stands with the ball next to the home base Pod with their back to the\nbasket.\nStructure - When the activity begins the player turns and dribbles straight to the lit Pod.\nIf Ist color, pulls up and shoots.\nIf 2nd color, penetrates to the basket for a layup.\nThe player then collects the ball and heads back to the home base Pod, taps the Pod and turns to\nrepeat the drilL",
-    poster: poster1,
-    slides: [video1, slide11, slide12],
+    poster: poster4,
+    slides: [video4, slide41, slide42],
     accessories: ["Cone"],
     activityGoals: ["Agility", "Ball Skills", "Decition Marking"],
     setup: {
@@ -138,8 +150,8 @@ const result = [
     title: "Resistance Band Catch",
     description:
       "Set-up - Tie resistance band to ladder/rig/tree and place the Pods on the floor in an arrow shape ahead.\nDistances - Place the center Pod 3m away from the resistance band, 2m between each Pod.\nStarting Position - Stand with resistance band wrapped around sternum, facing the Pods.\nStructure - When a Pod lights up, run powerfully towards the Pod and tap out with the hand. carefully return to starting position and look for the next Pod to light up. Repeat until the activity ends.",
-    poster: poster2,
-    slides: [video2, slide21, slide22],
+    poster: poster5,
+    slides: [video5, slide51, slide52],
     accessories: ["Ladder", "Pole", "Resistance Band", "Rig", "Tree"],
     activityGoals: ["Power", "Reaction Time", "Stamina"],
     setup: {
