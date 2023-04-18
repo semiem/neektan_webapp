@@ -4,10 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "../Common/Slider.style.css";
 
-import { HiHome, HiOutlinePlus } from "react-icons/hi";
-import { RxLapTimer } from "react-icons/rx";
-import { MdOutlineInsertChartOutlined } from "react-icons/md";
-import { SlSettings } from "react-icons/sl";
+import { HiOutlinePlus } from "react-icons/hi";
 import { ImExit } from "react-icons/im";
 
 import avatar from "../../assets/images/126.png";
@@ -158,30 +155,6 @@ export default function LandingPage({ isExit }) {
             </SwiperSlide>
           ))}
         </Swiper>
-      </div>
-      <div>
-        <div
-          className="fixed bottom-0 w-full h-14 rounded-t-3xl z-50"
-          style={{
-            background:
-              "linear-gradient(180deg, rgba(40,85,152,1) 0%, rgba(23,35,61,1) 65%, rgba(22,32,44,1) 80%)",
-          }}
-        >
-          <div className="flex justify-around mt-3">
-            <Link to="/">
-              <SlSettings className="w-8 h-8 text-sky-400 cursor-pointer" />
-            </Link>
-            <Link to="/">
-              <MdOutlineInsertChartOutlined className="w-8 h-8 text-sky-400 cursor-pointer" />
-            </Link>
-            <Link to="/">
-              <RxLapTimer className="w-8 h-8 text-sky-400 cursor-pointer" />
-            </Link>
-            <Link to="/">
-              <HiHome className="w-8 h-8 text-sky-400 cursor-pointer" />
-            </Link>
-          </div>
-        </div>
       </div>
     </div>
   );
