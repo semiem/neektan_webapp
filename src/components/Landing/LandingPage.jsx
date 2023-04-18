@@ -48,7 +48,7 @@ export default function LandingPage({ isExit }) {
         <div className="mr-4 my-2 font-iran text-white font-bold text-xl">
           فعالیت های من
         </div>
-        <Link to="/">
+        <Link to="">
           <div
             style={{
               width: "46vh",

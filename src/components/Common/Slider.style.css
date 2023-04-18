@@ -108,3 +108,7 @@ body {
     top:0px;
     left:0;
 }
+
+.overlayImage2{
+    background: linear-gradient(315deg, rgba(50,94,155,1) 0%, rgba(0,0,0,0) 100%);
+}

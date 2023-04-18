@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { AiOutlineCalendar, AiOutlineUser } from "react-icons/ai";
-import { BsBarChartLineFill } from "react-icons/bs";
 import { TbChartAreaLineFilled } from "react-icons/tb";
 
 export default function AnalyticsPage() {
