@@ -22,19 +22,19 @@ export default function SettingsPage() {
   const navigateList = [
     {
       name: "پروفایل من",
-      to: "/",
+      to: "",
       icon: AiOutlineUser,
       toggle: false,
     },
     {
       name: "مدیریت بازیکن",
-      to: "/",
+      to: "",
       icon: BsClipboard,
       toggle: false,
     },
     {
       name: "تنظیمات پاد",
-      to: "/",
+      to: "",
       icon: MdPodcasts,
       toggle: false,
     },
@@ -46,23 +46,27 @@ export default function SettingsPage() {
     },
     {
       name: "آکادمی پاد",
-      to: "/",
+      to: "",
       icon: RiBlazeFill,
       toggle: false,
     },
     {
       name: "امور مشترکین",
-      to: "/",
+      to: "",
       icon: MdOutlineHeadphones,
       toggle: false,
     },
     {
       name: "وبسایت پاد",
-      to: "/",
+      to: "",
       icon: TbWorld,
       toggle: false,
     },
   ];
+
+  const handleChange = (e) => {
+    console.log(e.target.checked);
+  };
 
   return (
     <div
@@ -90,9 +94,9 @@ export default function SettingsPage() {
 
       <div className="w-11/12 h-44 mx-auto mt-6">
         {navigateList.map((item, index) => (
-          <div>
+          <div key={index}>
             {item.toggle !== true ? (
-              <Link to={item.to} key={index}>
+              <Link to={item.to}>
                 <div className="overlayImage2 flex justify-between items-center w-full h-16 rounded-xl mt-4">
                   <div className="flex justify-center items-center">
                     <item.icon className="w-7 h-7 text-white mr-2" />
@@ -112,9 +116,14 @@ export default function SettingsPage() {
                   </div>
                 </div>
                 <div className="ml-4 mt-1">
-                  <label class="relative inline-flex items-center cursor-pointer">
-                    <input type="checkbox" value="" class="sr-only peer" />
-                    <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-0 peer-focus:ring-blue-300 dark:peer-focus:ring-sky-400 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-sky-400"></div>
+                  <label className="relative inline-flex items-center cursor-pointer">
+                    <input
+                      onChange={(e) => handleChange(e)}
+                      type="checkbox"
+                      value=""
+                      className="sr-only peer"
+                    />
+                    <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-0 peer-focus:ring-blue-300 dark:peer-focus:ring-sky-400 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-sky-400"></div>
                   </label>
                 </div>
               </div>
@@ -124,7 +133,7 @@ export default function SettingsPage() {
       </div>
 
       {/* End Menu */}
-      <div className="flex justify-around items-center w-11/12 h-16 mx-auto mt-[390px] mb-20">
+      <div className="flex justify-around items-center w-11/12 h-16 mx-auto mt-[390px]">
         <Link to="">
           <BsFacebook className="w-7 h-7 text-white" />
         </Link>
@@ -133,6 +142,17 @@ export default function SettingsPage() {
         </Link>
         <Link to="">
           <BsInstagram className="w-7 h-7 text-white" />
+        </Link>
+      </div>
+      <div className="flex justify-between items-center w-10/12 h-10 mx-auto mt-5 mb-24">
+        <Link to="">
+          <div className="font-iran text-white underline">شرایط و مقررات</div>
+        </Link>
+        <Link to="">
+          <div className="font-iran text-white underline">وارانتی</div>
+        </Link>
+        <Link to="">
+          <div className="font-iran text-white underline">حفاظت از حریم</div>
         </Link>
       </div>
     </div>
