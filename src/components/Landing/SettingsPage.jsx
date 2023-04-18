@@ -92,7 +92,7 @@ export default function SettingsPage() {
       </div>
       {/* Start Menu */}
 
-      <div className="w-11/12 h-44 mx-auto mt-6">
+      <div className="w-11/12 h-auto mx-auto mt-6">
         {navigateList.map((item, index) => (
           <div key={index}>
             {item.toggle !== true ? (
@@ -133,7 +133,7 @@ export default function SettingsPage() {
       </div>
 
       {/* End Menu */}
-      <div className="flex justify-around items-center w-11/12 h-16 mx-auto mt-[390px]">
+      <div className="flex justify-around items-center w-11/12 h-16 mx-auto mt-8">
         <Link to="">
           <BsFacebook className="w-7 h-7 text-white" />
         </Link>
