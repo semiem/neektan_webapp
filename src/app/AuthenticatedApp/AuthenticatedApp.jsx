@@ -10,8 +10,9 @@ import Settings from "../../screen/Landing/Settings";
 const AuthenticatedApp = ({ isExit }) => {
   return (
     <Routes>
-      <Route path="/" element={<PanelLayout />}>
-        <Route path="/" index element={<Landing isExit={isExit} />} />
+      <Route element={<PanelLayout />}>
+        <Route path="/Home" index element={<Landing isExit={isExit} />} />
+        <Route path="/" element={<Navigate to="/Home" />} />
         <Route path="/PerformanceTest" element={<PerformanceTest />} />
         <Route path="/Analytics" element={<Analytics />} />
         <Route path="/Settings" element={<Settings />} />

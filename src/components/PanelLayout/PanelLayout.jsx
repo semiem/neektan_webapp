@@ -5,8 +5,12 @@ import { SlSettings } from "react-icons/sl";
 
 import { Link } from "react-router-dom";
 import { Outlet } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 export default function PanelLayout() {
+  const location = useLocation();
+  const { pathname } = location;
+
   return (
     <div>
       <Outlet />
@@ -20,16 +24,40 @@ export default function PanelLayout() {
         >
           <div className="flex justify-around mt-3">
             <Link to="/Settings">
-              <SlSettings className="w-8 h-8 text-sky-400 cursor-pointer" />
+              <SlSettings
+                className={
+                  pathname.includes("/Settings")
+                    ? "w-8 h-8 text-sky-500 cursor-pointer"
+                    : "w-8 h-8 text-gray-500 cursor-pointer"
+                }
+              />
             </Link>
             <Link to="/Analytics">
-              <MdOutlineInsertChartOutlined className="w-8 h-8 text-sky-400 cursor-pointer" />
+              <MdOutlineInsertChartOutlined
+                className={
+                  pathname.includes("/Analytics")
+                    ? "w-8 h-8 text-sky-500 cursor-pointer"
+                    : "w-8 h-8 text-gray-500 cursor-pointer"
+                }
+              />
             </Link>
             <Link to="/PerformanceTest">
-              <RxLapTimer className="w-8 h-8 text-sky-400 cursor-pointer" />
+              <RxLapTimer
+                className={
+                  pathname.includes("/PerformanceTest")
+                    ? "w-8 h-8 text-sky-500 cursor-pointer"
+                    : "w-8 h-8 text-gray-500 cursor-pointer"
+                }
+              />
             </Link>
             <Link to="/">
-              <HiHome className="w-8 h-8 text-sky-400 cursor-pointer" />
+              <HiHome
+                className={
+                  pathname.includes("/Home")
+                    ? "w-8 h-8 text-sky-500 cursor-pointer"
+                    : "w-8 h-8 text-gray-500 cursor-pointer"
+                }
+              />
             </Link>
           </div>
         </div>
