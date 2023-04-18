@@ -50,7 +50,7 @@ export default function PanelLayout() {
                 }
               />
             </Link>
-            <Link to="/">
+            <Link to="/Home">
               <HiHome
                 className={
                   pathname.includes("/Home")

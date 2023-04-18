@@ -29,7 +29,7 @@ export default function ExplorePage() {
         <div className="flex justify-between mt-5 mx-6">
           <img src={logo} alt="" className="w-10" />
           <div className="font-iran font-bold text-xl text-white">کاوش</div>
-          <Link to="/">
+          <Link to="/Home">
             <HiArrowLeft className="w-6 h-6 text-white" />
           </Link>
         </div>

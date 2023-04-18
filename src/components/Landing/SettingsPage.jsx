@@ -1,3 +1,12 @@
 export default function SettingsPage() {
-  return <h1>SettingsPage</h1>;
+  return (
+    <div
+      className="h-screen w-screen overflow-x-hidden"
+      style={{
+        background: "#132037",
+      }}
+    >
+      <div className="text-white">SettingsPage</div>
+    </div>
+  );
 }

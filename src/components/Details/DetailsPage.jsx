@@ -83,7 +83,7 @@ export default function DetailsPage() {
         >
           <div className="flex justify-between mt-5 mx-6">
             <img src={logo2} alt="" className="w-10" />
-            <Link to="/">
+            <Link to="/Home">
               <HiArrowLeft className="w-6 h-6 text-white" />
             </Link>
           </div>
