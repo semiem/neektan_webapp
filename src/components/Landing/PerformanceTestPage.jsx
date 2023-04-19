@@ -5,21 +5,12 @@ import pic from "../../assets/images/128.png";
 import { MdOutlineTimer, MdLock } from "react-icons/md";
 import { RiHeartPulseFill } from "react-icons/ri";
 import "../Common/Slider.style.css";
+import "../Common/Global.style.css";
 
 export default function PerformanceTestPage() {
   return (
-    <div
-      className="h-screen w-screen overflow-x-hidden"
-      style={{
-        background: "#132037",
-      }}
-    >
-      <div
-        className="fixed z-10 w-screen"
-        style={{
-          background: "#132037",
-        }}
-      >
+    <div className="h-screen w-screen overflow-x-hidden backgroundColor1">
+      <div className="fixed z-10 w-screen backgroundColor1">
         <div className="flex justify-between mt-5 mx-6">
           <img src={logo} alt="" className="w-10" />
           <div className="font-iran font-bold text-xl text-white">

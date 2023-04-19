@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import "../Common/Global.style.css";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -20,12 +21,7 @@ export default function LandingPage({ isExit }) {
   };
 
   return (
-    <div
-      className="h-screen w-screen overflow-x-hidden"
-      style={{
-        background: "#132037",
-      }}
-    >
+    <div className="h-screen w-screen overflow-x-hidden backgroundColor1">
       <div
         style={{
           background: "#132037",

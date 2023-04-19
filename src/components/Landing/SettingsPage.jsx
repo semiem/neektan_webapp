@@ -17,12 +17,13 @@ import { RiBlazeFill } from "react-icons/ri";
 import { TbWorld } from "react-icons/tb";
 
 import "../Common/Slider.style.css";
+import "../Common/Global.style.css";
 
 export default function SettingsPage() {
   const navigateList = [
     {
       name: "پروفایل من",
-      to: "",
+      to: "/MyProfile",
       icon: AiOutlineUser,
       toggle: false,
     },
@@ -69,12 +70,7 @@ export default function SettingsPage() {
   };
 
   return (
-    <div
-      className="h-screen w-screen overflow-x-hidden"
-      style={{
-        background: "#132037",
-      }}
-    >
+    <div className="h-screen w-screen overflow-x-hidden backgroundColor1">
       <div>
         <div className="text-white font-iran text-xl font-bold text-center mt-8">
           تنظیمات

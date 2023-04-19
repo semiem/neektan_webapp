@@ -5,6 +5,8 @@ import { useState } from "react";
 import ActivitiesPage from "./ActivitiesPage";
 import CollectionsPage from "./CollectionsPage";
 
+import "../Common/Global.style.css";
+
 export default function ExplorePage() {
   const tabs = [{ name: "فعالیت ها" }, { name: "دسته بندی" }];
   const [label, setLabel] = useState(tabs[0].name);
@@ -14,18 +16,8 @@ export default function ExplorePage() {
   }
 
   return (
-    <div
-      className="h-screen w-screen overflow-x-hidden"
-      style={{
-        background: "#132037",
-      }}
-    >
-      <div
-        className="fixed z-10 w-screen"
-        style={{
-          background: "#132037",
-        }}
-      >
+    <div className="h-screen w-screen overflow-x-hidden backgroundColor1">
+      <div className="fixed z-10 w-screen backgroundColor1">
         <div className="flex justify-between mt-5 mx-6">
           <img src={logo} alt="" className="w-10" />
           <div className="font-iran font-bold text-xl text-white">کاوش</div>

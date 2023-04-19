@@ -1,18 +1,14 @@
 import { useState } from "react";
 import { AiOutlineCalendar, AiOutlineUser } from "react-icons/ai";
 import { TbChartAreaLineFilled } from "react-icons/tb";
+import "../Common/Global.style.css";
 
 export default function AnalyticsPage() {
   const tabs = [{ name: "آنالیز" }, { name: "تاریخچه" }];
   const [controlTabs, setControlTabs] = useState(tabs[0].name);
 
   return (
-    <div
-      className="h-screen w-screen overflow-x-hidden"
-      style={{
-        background: "#132037",
-      }}
-    >
+    <div className="h-screen w-screen overflow-x-hidden backgroundColor1">
       <div className="flex justify-between items-center mx-4 h-20">
         <div className="w-12 h-12 bg-white/30 rounded-full flex justify-center items-center cursor-pointer">
           <AiOutlineUser className="text-white w-6 h-6" />

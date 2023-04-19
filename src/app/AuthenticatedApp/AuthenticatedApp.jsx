@@ -6,6 +6,7 @@ import PanelLayout from "../../components/PanelLayout/PanelLayout";
 import PerformanceTest from "../../screen/Landing/PerformanceTest";
 import Analytics from "../../screen/Landing/Analytics";
 import Settings from "../../screen/Landing/Settings";
+import MyProfile from "../../screen/Others/MyProfile";
 
 const AuthenticatedApp = ({ isExit }) => {
   return (
@@ -20,6 +21,7 @@ const AuthenticatedApp = ({ isExit }) => {
       <Route path="/Detail/:id" element={<Details />} />
       <Route path="/Explore" element={<Explore />} />
       <Route path="/SignIn" element={<Navigate to="/" />} />
+      <Route path="/MyProfile" element={<MyProfile />} />
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   );
