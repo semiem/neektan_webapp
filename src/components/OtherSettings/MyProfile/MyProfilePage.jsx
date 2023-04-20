@@ -26,7 +26,7 @@ export default function MyProfilePage() {
           لورم ایپسوم
         </div>
         <Link
-          to="/"
+          to=""
           className="w-52 h-10 border bg-transparent border-[#7090bf] py-6 font-iran text-base text-[#7090bf] rounded-full flex justify-center items-center mx-auto mt-6"
         >
           ویرایش پروفایل
