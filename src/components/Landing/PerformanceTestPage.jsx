@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { HiSearch } from "react-icons/hi";
 import logo from "../../assets/images/127.png";
-import pic from "../../assets/images/128.png";
+import pic from "../../assets/images/132.jpg";
 import { MdOutlineTimer, MdLock } from "react-icons/md";
 import { RiHeartPulseFill } from "react-icons/ri";
 import "../Common/Slider.style.css";
