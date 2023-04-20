@@ -7,20 +7,12 @@ import pic6 from "../../assets/images/intro/alina-rubo-SYX4S7SVBOM-unsplash.jpg"
 import logo from "../../assets/images/130.png";
 
 export default function IntroPage() {
-  const imageList = [
-    { img: pic1 },
-    { img: pic2 },
-    { img: pic3 },
-    { img: pic4 },
-    { img: pic5 },
-    { img: pic6 },
-  ];
-
+  const imageList = [pic1, pic2, pic3, pic4, pic5, pic6];
   const r = Math.floor(Math.random() * imageList.length);
 
   return (
     <div className="relative">
-      <img src={imageList[r].img} alt="" className="h-screen w-screen" />
+      <img src={imageList[r]} alt="" className="h-screen w-screen" />
       <img src={logo} alt="" className="absolute top-64 right-24 w-44" />
     </div>
   );
