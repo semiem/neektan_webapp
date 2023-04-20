@@ -8,6 +8,7 @@ import Analytics from "../../screen/Landing/Analytics";
 import Settings from "../../screen/Landing/Settings";
 import MyProfile from "../../screen/Others/MyProfile";
 import Intro from "../../screen/Log/Intro/Intro";
+import ProfileEdit from "../../screen/Others/ProfileEdit";
 
 const AuthenticatedApp = ({ isExit }) => {
   return (
@@ -23,6 +24,7 @@ const AuthenticatedApp = ({ isExit }) => {
       <Route path="/Explore" element={<Explore />} />
       <Route path="/SignIn" element={<Navigate to="/" />} />
       <Route path="/MyProfile" element={<MyProfile />} />
+      <Route path="/ProfileEdit" element={<ProfileEdit />} />
       <Route path="/Intro" element={<Intro />} />
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>

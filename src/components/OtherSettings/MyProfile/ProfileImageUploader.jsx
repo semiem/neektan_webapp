@@ -71,7 +71,7 @@ export default function Previews(props) {
   useEffect(() => {
     // Make sure to revoke the data uris to avoid memory leaks, will run on unmount
     return () => files.forEach((file) => URL.revokeObjectURL(file.preview));
-  }, []);
+  }, [files]);
 
   return (
     <section className="relative container mt-8">
