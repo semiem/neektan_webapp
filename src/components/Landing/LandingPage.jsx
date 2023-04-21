@@ -104,7 +104,7 @@ export default function LandingPage({ isExit }) {
       </div>
 
       <div className="mt-6">
-        <div className="flex justify-between mx-4">
+        <div className="flex justify-between items-center mx-4">
           <div className="font-iran text-white font-bold text-xl">کاوش</div>
           <Link to="/Explore">
             <div className="text-sky-500 text-sm font-normal font-iran">
