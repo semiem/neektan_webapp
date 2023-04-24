@@ -56,7 +56,7 @@ export default function CollectionDetailsPage() {
         <div className="font-iran text-[#a2bee9] text-xs mt-6">شش فعالیت</div>
       </div>
       {/* Start Activities */}
-      <div className="w-10/12 h-auto mx-auto mt-6">
+      <div className="w-10/12 h-auto mx-auto my-6">
         <Link to="/Detail/201">
           <div className="w-11/12 h-24 mt-4">
             <div className="flex">
