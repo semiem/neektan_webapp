@@ -69,7 +69,7 @@ export default function CollectionDetailsPage() {
                   حرکات اصلاحی
                 </div>
                 <div className="float-right mt-1 text-white font-iran font-light text-xs">
-                  شش فعالیت
+                  یک بازیکن &#x2022; شش پاد
                 </div>
               </div>
             </div>
@@ -87,7 +87,7 @@ export default function CollectionDetailsPage() {
                   حرکات اصلاحی
                 </div>
                 <div className="float-right mt-1 text-white font-iran font-light text-xs">
-                  شش فعالیت
+                  یک بازیکن &#x2022; شش پاد
                 </div>
               </div>
             </div>
@@ -105,7 +105,7 @@ export default function CollectionDetailsPage() {
                   حرکات اصلاحی
                 </div>
                 <div className="float-right mt-1 text-white font-iran font-light text-xs">
-                  شش فعالیت
+                  یک بازیکن &#x2022; شش پاد
                 </div>
               </div>
             </div>
