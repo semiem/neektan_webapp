@@ -1,10 +1,8 @@
 import Countdown from "react-countdown";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { IoPause, IoPlay } from "react-icons/io5";
 
 export default function TimerPage() {
-  const [controlPause, setControlPause] = useState(false);
-
   const renderer = ({ formatted: { hours, minutes, seconds }, completed }) => {
     if (completed) {
       // Render a completed state
