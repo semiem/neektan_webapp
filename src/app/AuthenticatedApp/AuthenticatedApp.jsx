@@ -10,6 +10,7 @@ import MyProfile from "../../screen/Others/MyProfile";
 import Intro from "../../screen/Log/Intro/Intro";
 import ProfileEdit from "../../screen/Others/ProfileEdit";
 import CollectionDetails from "../../screen/Details/CollectionDetails";
+import Timer from "../../screen/Details/Timer";
 
 const AuthenticatedApp = ({ isExit }) => {
   return (
@@ -28,6 +29,7 @@ const AuthenticatedApp = ({ isExit }) => {
       <Route path="/MyProfile" element={<MyProfile />} />
       <Route path="/ProfileEdit" element={<ProfileEdit />} />
       <Route path="/Intro" element={<Intro />} />
+      <Route path="/Timer" element={<Timer />} />
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   );
