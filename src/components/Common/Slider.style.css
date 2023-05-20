@@ -1,114 +1,128 @@
 #app {
-    height: 100%;
+  height: 100%;
 }
 
 html,
 body {
-    position: relative;
-    height: 100%;
+  position: relative;
+  height: 100%;
 }
 
 body {
-    background: #eee;
-    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-    font-size: 14px;
-    color: #000;
-    margin: 0;
-    padding: 0;
+  background: #eee;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
 }
 
 .swiper {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .swiper-slide {
-    text-align: center;
-    font-size: 18px;
-    /* background: #fff; */
+  text-align: center;
+  font-size: 18px;
+  /* background: #fff; */
 
-    /* Center slide text vertically */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .swiper-slide img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
-
 
 /* Custom Css */
 
-.swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
-    bottom: var(--swiper-pagination-bottom,35px) !important;
+.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal,
+.swiper-pagination-custom,
+.swiper-pagination-fraction {
+  bottom: var(--swiper-pagination-bottom, 35px) !important;
 }
 
 .swiper-pagination-bullet {
-    background: #fff;
+  background: #fff;
 }
 
 .swiper-pagination-bullet-active {
-    opacity: var(--swiper-pagination-bullet-opacity, 1);
-    background: #007aff;
+  opacity: var(--swiper-pagination-bullet-opacity, 1);
+  background: #007aff;
 }
 
 .slider1 {
-    width: 38vh !important;
-    height: 23vh !important;
-    border-radius: 20px !important;
+  width: 38vh !important;
+  height: 23vh !important;
+  border-radius: 20px !important;
 }
 
 .slider2 {
-    width: 25vh !important;
-    height: 32vh !important;
+  width: 25vh !important;
+  height: 32vh !important;
 }
 
-.slider3{
-    width:16vh;
-    height:11vh;
-}
-  
-.slider4{
-    display: block; 
-    float: right; 
-    width: 45vh;
-    margin-right: 20px;
+.slider3 {
+  width: 16vh;
+  height: 11vh;
 }
 
-.borderimage{
-    width: 38vh !important;
-    height: 23vh !important;
+.slider4 {
+  display: block;
+  float: right;
+  width: 45vh;
+  margin-right: 20px;
 }
 
-.borderimage2{
-    width: 25vh !important;
-    height: 18vh !important;
+.borderimage {
+  width: 38vh !important;
+  height: 23vh !important;
 }
 
-.overlayImage{
-    position: absolute;
-    width:100%;
-    height:100%;
-    background: linear-gradient(315deg, rgba(50,94,155,1) 0%, rgba(0,0,0,0) 100%);
-    opacity: 0.9;
-    top:0px;
-    left:-16px;
+.borderimage2 {
+  width: 25vh !important;
+  height: 18vh !important;
 }
 
-.overlayImage1{
-    position: absolute;
-    width:100%;
-    height:100%;
-    background: linear-gradient(315deg, rgba(50,94,155,1) 0%, rgba(0,0,0,0) 100%);
-    opacity: 0.9;
-    top:0px;
-    left:0;
+.overlayImage {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    315deg,
+    rgba(50, 94, 155, 1) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  opacity: 0.9;
+  top: 0px;
+  left: -16px;
 }
 
-.overlayImage2{
-    background: linear-gradient(315deg, rgba(50,94,155,1) 0%, rgba(0,0,0,0) 100%);
+.overlayImage1 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    315deg,
+    rgba(50, 94, 155, 1) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  opacity: 0.9;
+  top: 0px;
+  left: 0;
+}
+
+.overlayImage2 {
+  background: linear-gradient(
+    315deg,
+    rgba(50, 94, 155, 1) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
 }
