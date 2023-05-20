@@ -5,7 +5,8 @@ import { IoPause, IoPlay } from "react-icons/io5";
 import { HiArrowLeft } from "react-icons/hi";
 
 export default function TimerPage() {
-  const [timeControl, setTimeControl] = useState(Date.now() + 8000);
+  const [timeControl] = useState(Date.now() + 8000);
+  //setTimeControl
   const renderer = ({ formatted: { hours, minutes, seconds }, completed }) => {
     if (completed) {
       return (
@@ -46,7 +47,7 @@ export default function TimerPage() {
   };
 
   return (
-    <div className="h-screen w-screen overflow-x-hidden backgroundColor1">
+    <div className="h-screen w-full sm:w-4/12 mx-auto overflow-x-hidden backgroundColor1">
       <div className="flex justify-between mt-5 mx-6">
         <div className="font-iran font-bold text-xl text-white">
           حرکت قدرتی کششی

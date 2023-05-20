@@ -12,8 +12,16 @@ export default function IntroPage() {
 
   return (
     <div className="relative">
-      <img src={imageList[r]} alt="" className="h-screen w-screen" />
-      <img src={logo} alt="" className="absolute top-64 right-24 w-44" />
+      <img
+        src={imageList[r]}
+        alt=""
+        className="h-screen w-full sm:w-4/12 mx-auto"
+      />
+      <img
+        src={logo}
+        alt=""
+        className="absolute top-64 right-24 sm:right-[600px] w-44"
+      />
     </div>
   );
 }

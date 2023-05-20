@@ -14,9 +14,9 @@ export default function PanelLayout() {
   return (
     <div>
       <Outlet />
-      <div>
+      <div className="w-full sm:w-4/12 mx-auto">
         <div
-          className="fixed bottom-0 w-full h-14 rounded-t-3xl z-50"
+          className="fixed bottom-0 w-full sm:w-4/12 h-14 rounded-t-3xl z-50"
           style={{
             background:
               "linear-gradient(180deg, rgba(40,85,152,1) 0%, rgba(23,35,61,1) 65%, rgba(22,32,44,1) 80%)",

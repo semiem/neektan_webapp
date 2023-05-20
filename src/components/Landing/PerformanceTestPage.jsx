@@ -9,8 +9,8 @@ import "../Common/Global.style.css";
 
 export default function PerformanceTestPage() {
   return (
-    <div className="h-screen w-screen overflow-x-hidden backgroundColor1">
-      <div className="fixed z-10 w-screen backgroundColor1">
+    <div className="h-screen w-full sm:w-4/12 mx-auto backgroundColor1 overflow-x-hidden">
+      <div className="fixed z-10 w-full sm:w-4/12 mx-auto backgroundColor1">
         <div className="flex justify-between mt-5 mx-6">
           <img src={logo} alt="" className="w-10" />
           <div className="font-iran font-bold text-xl text-white">
@@ -40,7 +40,7 @@ export default function PerformanceTestPage() {
       {/* End Search */}
       <div className="mb-20">
         <Link to="">
-          <div className="relative  mx-auto mt-4" style={{ width: "95vw" }}>
+          <div className="relative mx-auto w-11/12 mt-4">
             <img src={pic} alt="" className="rounded-xl mx-auto" />
             <div className="overlayImage1 rounded-xl"></div>
             <div
@@ -64,7 +64,7 @@ export default function PerformanceTestPage() {
           </div>
         </Link>
         <Link to="">
-          <div className="relative  mx-auto mt-4" style={{ width: "95vw" }}>
+          <div className="relative mx-auto w-11/12 mt-4">
             <img src={pic} alt="" className="rounded-xl mx-auto" />
             <div className="overlayImage1 rounded-xl"></div>
             <div

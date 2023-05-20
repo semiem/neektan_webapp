@@ -68,7 +68,10 @@ export default function DetailsPage() {
   }, []);
 
   return (
-    <div style={{ background: "#f1f4fb" }} className="overflow-x-hidden">
+    <div
+      style={{ background: "#f1f4fb" }}
+      className="w-full sm:w-4/12 mx-auto overflow-x-hidden"
+    >
       <div>
         <Swiper pagination={true} modules={[Pagination]} className="mySwiper">
           {sportData.slides.map((data, index) => (
@@ -79,7 +82,7 @@ export default function DetailsPage() {
         </Swiper>
         <div
           style={scrollPosition > 380 ? { background: "#04192F" } : null}
-          className="fixed top-0 z-20 w-screen h-16 rounded-b-3xl transition duration-300"
+          className="fixed top-0 z-20 w-full sm:w-4/12 mx-auto h-16 rounded-b-3xl transition duration-300"
         >
           <div className="flex justify-between mt-5 mx-6">
             <img src={logo2} alt="" className="w-10" />
@@ -91,7 +94,7 @@ export default function DetailsPage() {
       </div>
       {/* Start Details */}
       <div
-        className="relative -top-5 z-10 w-screen h-fit rounded-3xl border border-transparent"
+        className="relative -top-5 z-10 w-full h-fit rounded-3xl border border-transparent"
         style={{
           background: "#04192F",
         }}
@@ -270,7 +273,7 @@ export default function DetailsPage() {
         </div>
       </div>
       {/* End Details */}
-      <div className="relative -top-5 w-screen h-fit">
+      <div className="relative -top-5 w-full h-fit">
         {/* Start stations */}
         <div
           style={{ background: "#e2e9f1" }}

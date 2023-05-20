@@ -70,7 +70,7 @@ export default function SettingsPage() {
   };
 
   return (
-    <div className="h-screen w-screen overflow-x-hidden backgroundColor1">
+    <div className="h-screen w-full sm:w-4/12 mx-auto overflow-x-hidden backgroundColor1">
       <div>
         <div className="text-white font-iran text-xl font-bold text-center mt-8">
           تنظیمات

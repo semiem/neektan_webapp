@@ -9,7 +9,7 @@ export default function SignInPage({ isLogin }) {
   };
   return (
     <div
-      className="h-screen w-screen"
+      className="h-screen w-full sm:w-4/12 mx-auto"
       style={{
         background:
           "linear-gradient(180deg, rgba(40,85,152,1) 0%, rgba(23,35,61,1) 35%, rgba(22,32,44,1) 48%)",

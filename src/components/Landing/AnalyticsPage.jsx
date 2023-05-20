@@ -8,7 +8,7 @@ export default function AnalyticsPage() {
   const [controlTabs, setControlTabs] = useState(tabs[0].name);
 
   return (
-    <div className="h-screen w-screen overflow-x-hidden backgroundColor1">
+    <div className="h-screen w-full sm:w-4/12 mx-auto overflow-x-hidden backgroundColor1">
       <div className="flex justify-between items-center mx-4 h-20">
         <div className="w-12 h-12 bg-white/30 rounded-full flex justify-center items-center cursor-pointer">
           <AiOutlineUser className="text-white w-6 h-6" />

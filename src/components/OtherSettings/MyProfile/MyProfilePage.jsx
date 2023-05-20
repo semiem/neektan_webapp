@@ -9,7 +9,7 @@ export default function MyProfilePage() {
     console.log(2);
   };
   return (
-    <div className="h-screen w-screen overflow-x-hidden backgroundColor1">
+    <div className="h-screen w-full sm:w-4/12 mx-auto overflow-x-hidden backgroundColor1">
       {/* Top Menu */}
       <div className="flex justify-between mt-5 mx-6">
         <div className="w-5 h-2 bg-transparent"></div>

@@ -16,8 +16,8 @@ export default function ExplorePage() {
   }
 
   return (
-    <div className="h-screen w-screen overflow-x-hidden backgroundColor1">
-      <div className="fixed z-10 w-screen backgroundColor1">
+    <div className="h-screen w-full sm:w-4/12 mx-auto overflow-x-hidden backgroundColor1">
+      <div className="fixed z-10 w-full sm:w-4/12 mx-auto backgroundColor1">
         <div className="flex justify-between mt-5 mx-6">
           <img src={logo} alt="" className="w-10" />
           <div className="font-iran font-bold text-xl text-white">کاوش</div>

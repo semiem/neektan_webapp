@@ -88,7 +88,7 @@ export default function Previews(props) {
       {/* End */}
       <div {...getRootProps({ className: "dropzone" })}>
         <input {...getInputProps()} />
-        <div className="absolute right-52 top-20 flex justify-center items-center w-9 h-9 bg-[#2b5997] rounded-full shadow cursor-pointer">
+        <div className="absolute right-52 sm:right-64 top-20 flex justify-center items-center w-9 h-9 bg-[#2b5997] rounded-full shadow cursor-pointer">
           <HiCamera className="w-5 h-5 text-white" />
         </div>
       </div>

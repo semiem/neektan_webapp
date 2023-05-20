@@ -10,9 +10,9 @@ export default function ProfileEditPage() {
   };
 
   return (
-    <div className="h-screen w-screen overflow-x-hidden backgroundColor1">
+    <div className="h-screen w-full sm:w-4/12 mx-auto overflow-x-hidden backgroundColor1">
       {/* Top Menu */}
-      <div className="fixed w-full h-16 backgroundColor1 z-50">
+      <div className="fixed w-full sm:w-4/12 mx-auto h-16 backgroundColor1 z-50">
         <div className="flex justify-between items-center mt-5 mx-6">
           <button
             onClick={() => handleChange()}

@@ -21,8 +21,8 @@ export default function LandingPage({ isExit }) {
   };
 
   return (
-    <div className="h-screen w-screen overflow-x-hidden backgroundColor1">
-      <div className="fixed border border-transparent w-screen h-20 backgroundColor1">
+    <div className="w-full sm:w-4/12 mx-auto overflow-x-hidden backgroundColor1">
+      <div className="fixed border border-transparent w-full sm:w-4/12 mx-auto h-20 backgroundColor1">
         <div className="flex justify-around items-center mt-4">
           <img src={avatar} alt="" className="w-12 rounded-full" />
           <div className="text-2xl font-iran text-white font-semibold">
