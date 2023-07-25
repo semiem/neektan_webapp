@@ -39,6 +39,7 @@ const img = {
 export default function Previews({ getImage }) {
   const [files, setFiles] = useState([]);
   const [base64Decode, setBase64Decode] = useState([]);
+  const [showModal, setShowModal] = useState(false);
   const { getRootProps, getInputProps } = useDropzone({
     accept: {
       "image/*": [],
@@ -117,19 +118,25 @@ export default function Previews({ getImage }) {
         {/* End */}
         <div {...getRootProps({ className: "dropzone" })}>
           <input {...getInputProps()} />
-          <div className="absolute right-52 sm:right-64 top-20 flex justify-center items-center w-9 h-9 bg-[#2b5997] rounded-full shadow cursor-pointer">
-            <HiCamera className="w-5 h-5 text-white" />
+          <div className="absolute right-40 sm:right-64 top-20 flex justify-center items-center w-9 h-9 bg-[#2b5997] rounded-full shadow cursor-pointer">
+            <HiCamera
+              className="w-5 h-5 text-white"
+              onClick={() => setShowModal(true)}
+            />
           </div>
         </div>
         <aside style={thumbsContainer}>{thumbs}</aside>
+        {showModal && files.length !== 0 ? (
+          <div className="relative w-full h-60 overflow-hidden">
+            <EasyCropper
+              image={base64Decode}
+              returnImage={setBase64Decode}
+              closeModal={() => setShowModal(false)}
+              className="absolute"
+            />
+          </div>
+        ) : null}
       </section>
-      <div className="relative w-full h-60 overflow-hidden">
-        <EasyCropper
-          image={base64Decode}
-          returnImage={setBase64Decode}
-          className="absolute"
-        />
-      </div>
     </>
   );
 }
