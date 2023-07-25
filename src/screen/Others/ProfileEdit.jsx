@@ -1,4 +1,4 @@
-import ProfileEditPage from "../../components/OtherSettings/MyProfile/ProfileEditPage";
+import ProfileEditPage from "../../components/Settings/MyProfile/ProfileEditPage";
 
 const ProfileEdit = () => {
   return <ProfileEditPage />;

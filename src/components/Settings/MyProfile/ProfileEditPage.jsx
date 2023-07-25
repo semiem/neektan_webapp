@@ -39,7 +39,7 @@ export default function ProfileEditPage() {
           <div className="grid grid-cols-2 mx-3">
             <div className="mx-2 mt-3">
               <label
-                for="base-input"
+                htmlFor="base-input"
                 className="block mb-2 text-sm font-medium text-white font-iran"
               >
                 نام
@@ -52,7 +52,7 @@ export default function ProfileEditPage() {
             </div>
             <div className="mx-2 mt-3">
               <label
-                for="base-input"
+                htmlFor="base-input"
                 className="block mb-2 text-sm font-medium text-white font-iran"
               >
                 نام خانوادگی
@@ -65,7 +65,7 @@ export default function ProfileEditPage() {
             </div>
             <div className="mx-2 mt-3">
               <label
-                for="base-input"
+                htmlFor="base-input"
                 className="block mb-2 text-sm font-medium text-white font-iran"
               >
                 نام نمایشی
@@ -79,7 +79,7 @@ export default function ProfileEditPage() {
           </div>
           <div className="mx-2 mt-5">
             <label
-              for="base-input"
+              htmlFor="base-input"
               className="block mb-2 mr-3 text-sm font-medium text-white font-iran"
             >
               تاریخ تولد
@@ -114,7 +114,7 @@ export default function ProfileEditPage() {
           <div className="grid grid-cols-2 mx-3">
             <div className="mx-2 mt-3">
               <label
-                for="base-input"
+                htmlFor="base-input"
                 className="block mb-2 text-sm font-medium text-white font-iran"
               >
                 قد
@@ -127,7 +127,7 @@ export default function ProfileEditPage() {
             </div>
             <div className="mx-2 mt-3">
               <label
-                for="base-input"
+                htmlFor="base-input"
                 className="block mb-2 text-sm font-medium text-white font-iran"
               >
                 وزن
@@ -140,16 +140,16 @@ export default function ProfileEditPage() {
             </div>
             <div className="mx-2 mt-3">
               <label
-                for="base-input"
+                htmlFor="base-input"
                 className="block mb-2 text-sm font-medium text-white font-iran"
               >
                 جنسیت
               </label>
               <select
                 id="base-input"
-                class="bg-white/10 border font-iran  border-transparent text-white text-sm rounded-lg focus:ring-0 focus:border-transparent block w-full p-2.5"
+                className="bg-white/10 border font-iran  border-transparent text-white text-sm rounded-lg focus:ring-0 focus:border-transparent block w-full p-2.5"
               >
-                <option selected>انتخاب</option>
+                <option value=""></option>
                 <option value="M">مرد</option>
                 <option value="F">زن</option>
               </select>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { HiCamera } from "react-icons/hi";
 import pic from "../../../assets/images/126.png";
+import { EasyCropper } from "./EasyCropper";
 
 const thumbsContainer = {
   display: "flex",
@@ -37,11 +38,13 @@ const img = {
 
 export default function Previews(props) {
   const [files, setFiles] = useState([]);
+  const [base64Decode, setBase64Decode] = useState([]);
   const { getRootProps, getInputProps } = useDropzone({
     accept: {
       "image/*": [],
     },
     onDrop: (acceptedFiles) => {
+      convertToBase64(acceptedFiles[0]);
       setFiles(
         acceptedFiles.map((file) =>
           Object.assign(file, {
@@ -52,11 +55,32 @@ export default function Previews(props) {
     },
   });
 
+  const convertToBase64 = (file) => {
+    const promise = new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+      fileReader.onload = () => {
+        resolve(fileReader.result);
+      };
+      fileReader.onerror = (error) => {
+        reject(error);
+      };
+    });
+    promise.then(
+      (result) => {
+        setBase64Decode(result);
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+  };
+
   const thumbs = files.map((file) => (
     <div style={thumb} key={file.name}>
       <div style={thumbInner}>
         <img
-          src={file.preview}
+          src={base64Decode}
           style={img}
           alt=""
           // Revoke data uri after image is loaded
@@ -74,25 +98,34 @@ export default function Previews(props) {
   }, [files]);
 
   return (
-    <section className="relative container mt-8">
-      {/* Start */}
-      {files.length === 0 ? (
-        <aside style={thumbsContainer}>
-          <div style={thumb}>
-            <div style={thumbInner}>
-              <img src={pic} style={img} alt="" />
+    <>
+      <section className="relative container mt-8">
+        {/* Start */}
+        {base64Decode.length === 0 ? (
+          <aside style={thumbsContainer}>
+            <div style={thumb}>
+              <div style={thumbInner}>
+                <img src={pic} style={img} alt="" />
+              </div>
             </div>
+          </aside>
+        ) : null}
+        {/* End */}
+        <div {...getRootProps({ className: "dropzone" })}>
+          <input {...getInputProps()} />
+          <div className="absolute right-52 sm:right-64 top-20 flex justify-center items-center w-9 h-9 bg-[#2b5997] rounded-full shadow cursor-pointer">
+            <HiCamera className="w-5 h-5 text-white" />
           </div>
-        </aside>
-      ) : null}
-      {/* End */}
-      <div {...getRootProps({ className: "dropzone" })}>
-        <input {...getInputProps()} />
-        <div className="absolute right-52 sm:right-64 top-20 flex justify-center items-center w-9 h-9 bg-[#2b5997] rounded-full shadow cursor-pointer">
-          <HiCamera className="w-5 h-5 text-white" />
         </div>
+        <aside style={thumbsContainer}>{thumbs}</aside>
+      </section>
+      <div className="relative w-full h-60 border border-red-500 overflow-hidden">
+        <EasyCropper
+          image={base64Decode}
+          returnImage={(e) => setBase64Decode(e)}
+          className="absolute"
+        />
       </div>
-      <aside style={thumbsContainer}>{thumbs}</aside>
-    </section>
+    </>
   );
 }
