@@ -3,11 +3,15 @@ import { Link } from "react-router-dom";
 import { HiArrowLeft } from "react-icons/hi";
 import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
 import Previews from "./ProfileImageUploader";
+import { useState } from "react";
 
 export default function MyProfilePage() {
+  const [image, setImage] = useState([]);
+
   const handleExit = () => {
     console.log(2);
   };
+
   return (
     <div className="h-screen w-full sm:w-4/12 mx-auto overflow-x-hidden backgroundColor1">
       {/* Top Menu */}
@@ -19,7 +23,7 @@ export default function MyProfilePage() {
         </Link>
       </div>
       {/* Image Uploader */}
-      <Previews />
+      <Previews getImage={setImage} />
 
       <div className=" w-8/12 h-32 mx-auto">
         <div className="font-iran text-white text-2xl font-normal text-center">

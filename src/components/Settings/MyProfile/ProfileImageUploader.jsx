@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { HiCamera } from "react-icons/hi";
 import pic from "../../../assets/images/126.png";
-import { EasyCropper } from "./EasyCropper";
+import { EasyCropper } from "../../Common/EasyCropper";
 
 const thumbsContainer = {
   display: "flex",
@@ -36,7 +36,7 @@ const img = {
   borderRadius: "50%",
 };
 
-export default function Previews(props) {
+export default function Previews({ getImage }) {
   const [files, setFiles] = useState([]);
   const [base64Decode, setBase64Decode] = useState([]);
   const { getRootProps, getInputProps } = useDropzone({
@@ -95,7 +95,11 @@ export default function Previews(props) {
   useEffect(() => {
     // Make sure to revoke the data uris to avoid memory leaks, will run on unmount
     return () => files.forEach((file) => URL.revokeObjectURL(file.preview));
-  }, [files]);
+  }, []);
+
+  useEffect(() => {
+    getImage(base64Decode);
+  }, [base64Decode]);
 
   return (
     <>
@@ -119,10 +123,10 @@ export default function Previews(props) {
         </div>
         <aside style={thumbsContainer}>{thumbs}</aside>
       </section>
-      <div className="relative w-full h-60 border border-red-500 overflow-hidden">
+      <div className="relative w-full h-60 overflow-hidden">
         <EasyCropper
           image={base64Decode}
-          returnImage={(e) => setBase64Decode(e)}
+          returnImage={setBase64Decode}
           className="absolute"
         />
       </div>
