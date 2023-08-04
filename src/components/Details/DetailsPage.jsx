@@ -83,6 +83,7 @@ export default function DetailsPage() {
             if (readyState) {
 
                 (function myLoop(i) {
+                    console.log("Counter: " + counter)
                     setTimeout(function () {
                         const tData = {
                             event: "Move That Cone",
@@ -96,9 +97,9 @@ export default function DetailsPage() {
                         if (--i) myLoop(i);   //  decrement i and call myLoop again if i > 0
                     }, 2000)
                 })(3 * counter);
+                return
 
-                let i = 1;
-
+                // let i = 1;
                 // function counterLoop() {
                 //     setTimeout(function () {
                 //         console.log("counter= " + counter);
@@ -370,18 +371,18 @@ export default function DetailsPage() {
 
                     <div className="w-40 h-14 flex justify-around items-center">
                         <div
-                            onClick={() => handlePlusCounter()}
+                            onClick={() => handlePlusStations()}
                             className="w-10 h-10 bg-white shadow-md rounded-md flex justify-center items-center cursor-pointer"
                         >
                             <HiOutlinePlusSm className="w-6 h-6 text-gray-600"/>
                         </div>
                         <div className="w-10 h-10 flex justify-center items-center">
-                            {counter}
+                            {stations}
                         </div>
                         <div
                             onClick={() => handleMinusCounter()}
                             className={
-                                counter > 1
+                                stations > 1
                                     ? "w-10 h-10 bg-white shadow-md rounded-md flex justify-center items-center cursor-pointer"
                                     : "w-10 h-10 bg-white shadow-md rounded-md flex justify-center items-center cursor-pointer opacity-40"
                             }
@@ -406,18 +407,18 @@ export default function DetailsPage() {
 
                     <div className="w-40 h-14 flex justify-around items-center">
                         <div
-                            onClick={() => handlePlusStations()}
+                            onClick={() => handlePlusCounter()}
                             className="w-10 h-10 bg-white shadow-md rounded-md flex justify-center items-center cursor-pointer"
                         >
                             <HiOutlinePlusSm className="w-6 h-6 text-gray-600"/>
                         </div>
                         <div className="w-10 h-10 flex justify-center items-center">
-                            {stations}
+                            {counter}
                         </div>
                         <div
-                            onClick={() => handleMinusStations()}
+                            onClick={() => handleMinusCounter()}
                             className={
-                                stations > 1
+                                counter > 1
                                     ? "w-10 h-10 bg-white shadow-md rounded-md flex justify-center items-center cursor-pointer"
                                     : "w-10 h-10 bg-white shadow-md rounded-md flex justify-center items-center cursor-pointer opacity-40"
                             }
