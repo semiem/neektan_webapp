@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useCallback} from "react";
 import {Link} from "react-router-dom";
 import {useParams} from "react-router-dom";
 
@@ -18,6 +18,7 @@ import {BsRepeat, BsFlag} from "react-icons/bs";
 import {BiInfoCircle} from "react-icons/bi";
 
 import {getDataById} from "../../core/dataFieldAPI";
+import useWebSocket, {ReadyState} from 'react-use-websocket';
 
 export default function DetailsPage() {
     // Handle URL Params
@@ -61,70 +62,87 @@ export default function DetailsPage() {
     //     console.log(err);
     //   }
     // };
-    const [ws, setWs] = useState();
+    // const [ws, setWs] = useState(new WebSocket("ws://192.168.66.66:81"));
+    // const [wsStat, setWsStat] = useState("آفلاین");
+    // ws.onopen = (event) => {
+    //     console.log(ws.readyState)
+    //     setWsStat("آنلاین")
+    // };
+    // useEffect(() => {
+    //     console.log("TESTT")
+    //
+    // }, []);
+    const [socketUrl, setSocketUrl] = useState('ws://192.168.66.66:81');
+    // const [socketUrl, setSocketUrl] = useState('wss://socketsbay.com/wss/v2/1/demo/');
+    const [messageHistory, setMessageHistory] = useState([]);
+
+    const {sendMessage, lastMessage, readyState} = useWebSocket(socketUrl);
 
     useEffect(() => {
-        setWs(new WebSocket("ws://192.168.66.66:81"))
-        console.log("TESTT")
-        // ws.onopen = (event) => {
-        //     console.log(ws.readyState)
-        //
-        // };
-    }, []);
+        console.log("lastMessage= " + lastMessage)
+        if (lastMessage !== null) {
+            setMessageHistory((prev) => prev.concat(lastMessage));
+        }
+    }, [lastMessage, setMessageHistory]);
 
 
-    const [readyState, setReadyState] = useState(true);
+
+    const connectionStatus = {
+        [ReadyState.CONNECTING]: 'در حال اتصال',
+        [ReadyState.OPEN]: 'آنلاین',
+        [ReadyState.CLOSING]: 'در حال قطع اتصال',
+        [ReadyState.CLOSED]: 'قطع',
+        [ReadyState.UNINSTANTIATED]: 'خطا',
+    }[readyState];
+
+
+    // const [readyState, setReadyState] = useState(true);
     const testWebSocket = (data) => {
 
-        // const ws = new WebSocket("ws://192.168.66.66:81");
-        if (ws.readyState != 1) {
-            console.log("Still Conncting");
-        } else {
-            if (readyState) {
+        if (readyState === ReadyState.OPEN) {
 
-                (function myLoop(i) {
-                    console.log("Counter: " + counter)
-                    setTimeout(function () {
-                        const tData = {
-                            event: "Move That Cone",
-                            data: {
-                                "p1": i % 3 == 0 ? true : false,
-                                "p2": i % 3 == 1 ? true : false,
-                                "p3": i % 3 == 2 ? true : false
-                            },
-                        };
-                        ws.send(JSON.stringify(tData));
-                        if (--i) myLoop(i);   //  decrement i and call myLoop again if i > 0
-                    }, 2000)
-                })(3 * counter);
-                return
+            (function myLoop(i) {
+                console.log("Counter: " + counter)
+                setTimeout(function () {
+                    const tData = {
+                        event: "Move That Cone",
+                        data: {
+                            "p1": i % 3 == 0 ? true : false,
+                            "p2": i % 3 == 1 ? true : false,
+                            "p3": i % 3 == 2 ? true : false
+                        },
+                    };
+                    sendMessage(JSON.stringify(tData));
+                    console.log(JSON.stringify(tData))
+                    if (--i) myLoop(i);   //  decrement i and call myLoop again if i > 0
+                }, 2000)
+            })(3 * counter);
+            return
 
-                // let i = 1;
-                // function counterLoop() {
-                //     setTimeout(function () {
-                //         console.log("counter= " + counter);
-                //         i++;
-                //         if (i < counter) {
-                //             let j = 1;
-                //             function stationLoop() {
-                //                 setTimeout(function () {
-                //                     console.log("station= " + j);
-                //                     j++;
-                //                     if (j < stations) {
-                //                         stationLoop();
-                //                     }
-                //                 }, 2000)
-                //             }
-                //             stationLoop();
-                //         }
-                //     }, 1000)
-                //
-                // }
-                // counterLoop();
-            }
-
-
+            // let i = 1;
+            // function counterLoop() {
+            //     setTimeout(function () {
+            //         console.log("counter= " + counter);
+            //         i++;
+            //         if (i < counter) {
+            //             let j = 1;
+            //             function stationLoop() {
+            //                 setTimeout(function () {
+            //                     console.log("station= " + j);
+            //                     j++;
+            //                     if (j < stations) {
+            //                         stationLoop();
+            //                     }
+            //                 }, 2000)
+            //             }
+            //             stationLoop();
+            //         }
+            //     }, 1000)
+            //
+            // }
+            // counterLoop();
         }
+
 
         // const tData = {
         //   event: "bts:subscribe",
@@ -428,6 +446,35 @@ export default function DetailsPage() {
                     </div>
                 </div>
                 {/* End Cycles */}
+                <div
+                    style={{background: "#e2e9f1"}}
+                    className="flex justify-around items-center w-full h-20 mt-8"
+                >
+                    <div className="flex justify-between items-center w-36 h-10">
+                        <span className="font-iran text-base font-medium mx-2">
+              وضعیت دستگاه
+            </span>
+                        <BiInfoCircle className="w-4 h-4 text-xs cursor-pointer"/>
+                    </div>
+
+                    <div className="w-40 h-14 flex justify-around items-center">
+
+                            <span className="font-iran text-base font-medium mx-2">
+                                {connectionStatus}
+                            </span>
+
+                    </div>
+
+                </div>
+              <div style={{direction:"ltr"}}>
+                  {lastMessage ? <span>- Last message: {lastMessage.data}</span> : null}
+                  <ul>
+                      {messageHistory.map((message, idx) => (
+                          <span key={idx}>{"No " + idx + ": "}{message ? message.data : null}<br /></span>
+
+                      ))}
+                  </ul>
+              </div>
 
                 <div className="mt-4 flex justify-around">
                     <button
@@ -443,7 +490,9 @@ export default function DetailsPage() {
                     >
                         رزرو حرکت
                     </button>
+
                 </div>
+
             </div>
         </div>
     );
