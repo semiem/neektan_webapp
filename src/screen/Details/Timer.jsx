@@ -119,6 +119,7 @@ function TimerPage(counter) {
             clockRef.current.pause();
     };
 
+
     return (
         <div className="h-screen w-full sm:w-4/12 mx-auto overflow-x-hidden backgroundColor1">
             <div className="flex justify-between mt-5 mx-6">
