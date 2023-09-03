@@ -61,77 +61,7 @@ export default function DetailsPage() {
     //     console.log(err);
     //   }
     // };
-    const [ws, setWs] = useState();
 
-    useEffect(() => {
-        setWs(new WebSocket("ws://192.168.66.66:81"))
-        console.log("TESTT")
-        // ws.onopen = (event) => {
-        //     console.log(ws.readyState)
-        //
-        // };
-    }, []);
-
-
-    const [readyState, setReadyState] = useState(true);
-    const testWebSocket = (data) => {
-
-        // const ws = new WebSocket("ws://192.168.66.66:81");
-        if (ws.readyState != 1) {
-            console.log("Still Conncting");
-        } else {
-            if (readyState) {
-
-                (function myLoop(i) {
-                    console.log("Counter: " + counter)
-                    setTimeout(function () {
-                        const tData = {
-                            event: "Move That Cone",
-                            data: {
-                                "p1": i % 3 == 0 ? true : false,
-                                "p2": i % 3 == 1 ? true : false,
-                                "p3": i % 3 == 2 ? true : false
-                            },
-                        };
-                        ws.send(JSON.stringify(tData));
-                        if (--i) myLoop(i);   //  decrement i and call myLoop again if i > 0
-                    }, 2000)
-                })(3 * counter);
-                return
-
-                // let i = 1;
-                // function counterLoop() {
-                //     setTimeout(function () {
-                //         console.log("counter= " + counter);
-                //         i++;
-                //         if (i < counter) {
-                //             let j = 1;
-                //             function stationLoop() {
-                //                 setTimeout(function () {
-                //                     console.log("station= " + j);
-                //                     j++;
-                //                     if (j < stations) {
-                //                         stationLoop();
-                //                     }
-                //                 }, 2000)
-                //             }
-                //             stationLoop();
-                //         }
-                //     }, 1000)
-                //
-                // }
-                // counterLoop();
-            }
-
-
-        }
-
-        // const tData = {
-        //   event: "bts:subscribe",
-        //   data: { channel: "order_book_btcusd" },
-        // };
-        // ws.send(JSON.stringify(tData));
-    }
 
 
     // Handle Scroll Positions
@@ -430,13 +360,15 @@ export default function DetailsPage() {
                 {/* End Cycles */}
 
                 <div className="mt-4 flex justify-around">
-                    <button
-                        onClick={() => testWebSocket()}
-                        type="button"
-                        className="font-iran items-center w-40 px-4 py-3 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-gradient-to-r from-blue-500 to-cyan-500"
-                    >
-                        شروع
-                    </button>
+                    <Link to="/Timer" state={{ counter: counter }}>
+                        <button
+                            // onClick={() => testWebSocket()}
+                            type="button"
+                            className="font-iran items-center w-40 px-4 py-3 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-gradient-to-r from-blue-500 to-cyan-500"
+                        >
+                            شروع
+                        </button>
+                    </Link>
                     <button
                         type="button"
                         className="font-iran items-center w-40 px-4 py-3 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-sky-400"
