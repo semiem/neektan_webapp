@@ -72,6 +72,7 @@ export default function DetailsPage() {
         setScrollPosition(position);
     };
 
+
     useEffect(() => {
         window.addEventListener("scroll", handleScroll, {passive: true});
         return () => {
