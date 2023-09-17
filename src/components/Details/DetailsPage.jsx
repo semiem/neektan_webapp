@@ -430,13 +430,15 @@ export default function DetailsPage() {
                 {/* End Cycles */}
 
                 <div className="mt-4 flex justify-around">
-                    <button
-                        onClick={() => testWebSocket()}
-                        type="button"
-                        className="font-iran items-center w-40 px-4 py-3 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-gradient-to-r from-blue-500 to-cyan-500"
-                    >
-                        شروع
-                    </button>
+                    <Link to="/Timer" params={{ testvalue: "hello" }}>
+                        <button
+                            // onClick={() => testWebSocket()}
+                            type="button"
+                            className="font-iran items-center w-40 px-4 py-3 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-gradient-to-r from-blue-500 to-cyan-500"
+                        >
+                            شروع
+                        </button>
+                    </Link>
                     <button
                         type="button"
                         className="font-iran items-center w-40 px-4 py-3 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-sky-400"
