@@ -221,7 +221,7 @@ export default function DetailsPage() {
             >
               <HiOutlinePlusSm className="w-5 h-5 text-[#3a5699]" />
             </button>
-            <div className="w-10 h-10 flex justify-center items-center text-base font-bold text-cyan-950">
+            <div className="w-10 h-10 flex justify-center items-center font-iran text-lg font-semibold text-cyan-950">
               {stations}
             </div>
             <button
@@ -256,7 +256,7 @@ export default function DetailsPage() {
             >
               <HiOutlinePlusSm className="w-5 h-5 text-[#3a5699]" />
             </button>
-            <div className="w-10 h-10 flex justify-center items-center text-base font-bold text-cyan-950">
+            <div className="w-10 h-10 flex justify-center items-center font-iran text-lg font-semibold text-cyan-950">
               {counter}
             </div>
             <button
