@@ -3,6 +3,68 @@
 @tailwind utilities;
 
 body {
-    direction: rtl;
-    @apply font-iran;
+  direction: rtl;
+  @apply font-iran;
+}
+
+*::-webkit-scrollbar {
+  background-color: transparent;
+  width: 7px;
+  height: 5px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #2e2e2e8f;
+  border-radius: 30px;
+}
+
+/* Detail page - gradient */
+.bg-gradient {
+  background: linear-gradient(to top, #01233d 91%, #1b4362 101%);
+}
+
+/* Timer gradient */
+.bg-timer-gradient {
+  background: linear-gradient(180deg, #2aace4 10%, #113181 40%, #102250 80%);
+}
+
+/* Background gradient for start button in detail page */
+.bg-button-gradient {
+  background: linear-gradient(
+    150deg,
+    #1236d4 5%,
+    #3e8aee 41%,
+    #4494fc 51%,
+    #35c7e1 85%
+  );
+}
+
+/* Background gradient for navigation menu */
+.bg-menu-gradient {
+  background: linear-gradient(to top, #101b2d 20%, #153653 95%);
+}
+
+/* Background gradient for settings page background */
+.bg-settings-gradient {
+  background: linear-gradient(10deg, #101b2d 68%, #295c8d 100%);
+}
+
+/* Background gradient for pro version button in settings page */
+.bg-buttonPro-gradient {
+  transition: 0.2s;
+  background: linear-gradient(110deg, #3a3ca5 10%, #35c7e1 90%);
+}
+
+.animate-welcome {
+  animation: WelcomeAnimation 5s 1;
+  animation-delay: 1s;
+}
+
+@keyframes WelcomeAnimation {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100vw);
+  }
 }

@@ -120,9 +120,5 @@ body {
 }
 
 .overlayImage2 {
-  background: linear-gradient(
-    315deg,
-    rgba(50, 94, 155, 1) 0%,
-    rgba(0, 0, 0, 0) 100%
-  );
+  background: linear-gradient(to left, #2c5288 0%, #142239 80%);
 }

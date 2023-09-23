@@ -1,19 +1,31 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AuthenticatedApp from "./AuthenticatedApp/AuthenticatedApp";
 import UnAuthenticatedApp from "./UnAuthenticatedApp/UnAuthenticatedApp";
 import { getItem } from "../core/services/LocalStorage";
+import Welcome from "./Welcome";
 
 const App = () => {
-  const [logging, setLogging] = useState(getItem("token") !== false);
+  const [isWelcome, setIsWelcome] = useState(true);
+  const [loggedIn, setLoggedIn] = useState(getItem("token") !== false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsWelcome(false);
+    }, 7000);
+  }, []);
+
   const handleLogin = () => {
-    setLogging(true);
+    setLoggedIn(true);
   };
 
   const handleExit = () => {
-    setLogging(false);
+    setLoggedIn(false);
   };
 
-  return logging ? (
+  return isWelcome ? (
+    <Welcome />
+  )
+   : loggedIn ? (
     <AuthenticatedApp isExit={handleExit} />
   ) : (
     <UnAuthenticatedApp isLogin={handleLogin} />
