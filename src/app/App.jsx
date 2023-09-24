@@ -11,7 +11,7 @@ const App = () => {
   useEffect(() => {
     setTimeout(() => {
       setIsWelcome(false);
-    }, 7000);
+    }, 6000);
   }, []);
 
   const handleLogin = () => {

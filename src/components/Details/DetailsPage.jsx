@@ -136,7 +136,7 @@ export default function DetailsPage() {
             {sportData.activityGoals.map((activeGoal, index) => (
               <div
                 key={index}
-                className="font-iran text-violet-200 text-sm font-normal w-fit py-1.5 px-3 border border-violet-200 rounded-full bg-[#143650]"
+                className="font-iran text-violet-200 text-sm font-normal w-full min-w-fit py-1.5 px-3 border border-violet-200 rounded-full bg-[#143650]"
               >
                 {activeGoal}
               </div>
