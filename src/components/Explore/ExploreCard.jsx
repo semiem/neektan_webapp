@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const ExploreCard = ({ id, image, title }) => {
   return (
-    <Link to={`Detail/${id}`} className="w-[300px] min-w-[330px] flex gap-3">
+    <Link to={`/Detail/${id}`} className="w-[300px] min-w-[330px] flex gap-3">
       <div>
         <img
           src={image}
