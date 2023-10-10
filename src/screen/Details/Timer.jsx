@@ -35,12 +35,21 @@ function TimerPage(counter) {
 
     useEffect(() => {
         if (lastMessage !== null) {
-            let res = JSON.parse(lastMessage);
-            if (res.setupStatus != undefined){
-                if (res.setupStatus == true){
+            console.log(lastMessage.data)
+            let res = JSON.parse(lastMessage.data);
+            // if (res.statusConnection != undefined){
+            //     if (res.statusConnection == true){
+            //         setConfigSet(true);
+            //     }
+            // } 
+            // else 
+            if (res.statusConfig != undefined){
+                if (res.statusConfig == true){
                     setConfigSet(true);
+                    console.log("ConfigResponseSet");
                 }
             }
+            // setConfigSet(true);
 
             // setMessageHistory((prev) => prev.concat(lastMessage));
         }
@@ -69,6 +78,7 @@ function TimerPage(counter) {
             console.log("Still Conncting");
         } else {
             if (readyState) {
+                console.log("READY")
                 if (configSet) {
                     console.log("StartLoop");
                     (function myLoop(i) {
@@ -76,19 +86,25 @@ function TimerPage(counter) {
                         console.log("Counter: " + counter);
                         setTimeout(function () {
                             const tData = {
-                                event: "Move That Cone",
+                                event: "Play",
                                 data: [
                                     {state: i % 3 == 0 ? true : false},
-                                    {state: i % 3 == 0 ? true : false},
-                                    {state: i % 3 == 0 ? true : false},
+                                    {state: i % 3 == 1 ? true : false},
+                                    {state: i % 3 == 2 ? true : false},
                                 ],
                             };
                             sendMessage(JSON.stringify(tData));
                             if (--i) myLoop(i); //  decrement i and call myLoop again if i > 0
                         }, 2000);
                     })(3 * counter);
+
+                    const endData = {
+                        event: "End"
+                    };
+                    sendMessage(JSON.stringify(endData));
                     return;
                 } else {
+                    console.log("ConfigNotSet")
                     if (readyState != 1) {
                         console.log("Still Conncting");
                     } else {
@@ -102,7 +118,7 @@ function TimerPage(counter) {
                         };
                         sendMessage(JSON.stringify(tData));
                         // setConfigSet(true);
-                        console.log("ConfigResponseSet");
+                        console.log("ConfigSent");
 
                     }
 
@@ -132,7 +148,8 @@ function TimerPage(counter) {
     const clockRef = useRef();
 
     const handleStart = () => {
-        if (!readyState) {
+        console.log("ClickStart")
+        if (readyState) {
             if (configSet) {
                 console.log("ConfigSet");
                 testWebSocket();
@@ -146,6 +163,7 @@ function TimerPage(counter) {
         }
     };
     const handlePause = () => {
+        console.log("ClickPause")
         if (readyState) {
             setIsPlay(false);
             clockRef.current.pause();
@@ -159,7 +177,7 @@ function TimerPage(counter) {
                 <div className="font-iran font-bold text-xl text-white">
                     حرکت قدرتی کششی
                     <div className="text-green-400 text-sm">{connectionStatus}</div>
-                    <div className="text-green-400 text-sm">{configSet ? "آماده به کار" : ""}</div>
+                    <div className="text-green-400 text-sm">{configSet ? "آماده به کار" : "در حال ارسال تنظیمات"}</div>
                 </div>
 
                 <Link to="/Home">

@@ -5,7 +5,7 @@ import { getItem } from "../core/services/LocalStorage";
 import Welcome from "./Welcome";
 
 const App = () => {
-  const [isWelcome, setIsWelcome] = useState(true);
+  const [isWelcome, setIsWelcome] = useState(false);
   const [loggedIn, setLoggedIn] = useState(getItem("token") !== false);
 
   useEffect(() => {
