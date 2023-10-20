@@ -88,21 +88,27 @@ function TimerPage(counter) {
                             const tData = {
                                 event: "Play",
                                 data: [
-                                    {state: i % 3 == 0 ? true : false},
-                                    {state: i % 3 == 1 ? true : false},
-                                    {state: i % 3 == 2 ? true : false},
+                                    {state: i % 3 == 0 ? true : false, number:1},
+                                    {state: i % 3 == 1 ? true : false, number:2},
+                                    {state: i % 3 == 2 ? true : false, number:3},
                                 ],
                             };
                             sendMessage(JSON.stringify(tData));
+                            // console.log("3 * counter: " + 3 * counter)
+                            // console.log("i: " + i)
+                            // if(3 * counter <= i){
+                            //     const endData = {
+                            //         event: "End"
+                            //     };
+                            //     sendMessage(JSON.stringify(endData));
+                            //     return;
+                            // }
                             if (--i) myLoop(i); //  decrement i and call myLoop again if i > 0
                         }, 2000);
+                       
                     })(3 * counter);
 
-                    const endData = {
-                        event: "End"
-                    };
-                    sendMessage(JSON.stringify(endData));
-                    return;
+                   
                 } else {
                     console.log("ConfigNotSet")
                     if (readyState != 1) {
