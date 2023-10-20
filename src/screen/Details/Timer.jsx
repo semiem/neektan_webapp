@@ -41,10 +41,10 @@ function TimerPage(counter) {
             //     if (res.statusConnection == true){
             //         setConfigSet(true);
             //     }
-            // } 
-            // else 
-            if (res.statusConfig != undefined){
-                if (res.statusConfig == true){
+            // }
+            // else
+            if (res.statusConfig != undefined) {
+                if (res.statusConfig == true) {
                     setConfigSet(true);
                     console.log("ConfigResponseSet");
                 }
@@ -114,6 +114,12 @@ function TimerPage(counter) {
                                 gamer: 1,
                                 timeout: 2,
                                 logger_n: 3,
+                                ledTimeout: 5,
+                                ColorsNumbers: [
+                                    {'number': 1, "color": "red"},
+                                    {'number': 2, "color": "green"},
+                                    {'number': 3, "color": "blue"}
+                                ]
                             },
                         };
                         sendMessage(JSON.stringify(tData));
@@ -169,6 +175,34 @@ function TimerPage(counter) {
             clockRef.current.pause();
         }
     };
+    const setBtnColor = (number) => {
+        if (readyState && configSet) {
+            let color = "white";
+            switch (number) {
+                case 1:
+                    color = "red"
+                    break
+                case 2:
+                    color = "green"
+                    break
+                case 3:
+                    color = "blue"
+                    break
+                default:
+                    color = "white"
+            }
+            const tData = {
+                event: "ShowColorNumber",
+                color: {
+                    number: number,
+                    color: color,
+
+                },
+            };
+            sendMessage(JSON.stringify(tData));
+            console.log("ShowColorNumber " + number + " => " + color);
+        }
+    };
 
     return (
         <div
@@ -215,9 +249,12 @@ function TimerPage(counter) {
                 <div className="flex justify-between items-center px-3">
                     <span className="text-violet-200 font-iran">رنگ ها</span>
                     <div className="flex">
-                        <span className="w-6 h-6 bg-red-500 rounded-full border-[3px] border-[#15233c]"></span>
-                        <span className="w-6 h-6 bg-green-500 rounded-full -mr-2 border-[3px] border-[#15233c]"></span>
-                        <span className="w-6 h-6 bg-blue-500 rounded-full -mr-2 border-[3px] border-[#15233c]"></span>
+                        <span onClick={() => setBtnColor(3)}
+                              className="w-12 h-12 bg-blue-500 rounded-full mx-1 border-[1px] border-[#15233c] text-center font-bold text-xl">3</span>
+                        <span onClick={() => setBtnColor(2)}
+                              className="w-12 h-12 bg-green-500 rounded-full mx-1 border-[1ظpx] border-[#15233c] text-center font-bold text-xl">2</span>
+                        <span onClick={() => setBtnColor(1)}
+                              className="w-12 h-12 bg-red-500 rounded-full mx-1	 border-[1px] border-[#15233c] text-center font-bold text-xl">1</span>
                     </div>
                 </div>
                 <div className="w-full flex justify-around items-end gap-8">
