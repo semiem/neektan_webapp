@@ -115,10 +115,10 @@ function TimerPage(counter) {
                                 timeout: 2,
                                 logger_n: 3,
                                 ledTimeout: 5,
-                                ColorsNumbers: [
-                                    {'number': 1, "color": "red"},
-                                    {'number': 2, "color": "green"},
-                                    {'number': 3, "color": "blue"}
+                               ColorsNumbers: [
+                                    {number: 1, color: "red"},
+                                    {number: 2, color: "green"},
+                                    {number: 3, color: "blue"}
                                 ]
                             },
                         };
@@ -193,11 +193,8 @@ function TimerPage(counter) {
             }
             const tData = {
                 event: "ShowColorNumber",
-                color: {
-                    number: number,
-                    color: color,
-
-                },
+                number: number,
+                color: color
             };
             sendMessage(JSON.stringify(tData));
             console.log("ShowColorNumber " + number + " => " + color);
