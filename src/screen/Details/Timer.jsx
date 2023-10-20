@@ -194,6 +194,7 @@ function TimerPage(counter) {
             const tData = {
                 event: "ShowColorNumber",
                 number: number,
+                ledTimeout: 5,
                 color: color
             };
             sendMessage(JSON.stringify(tData));
