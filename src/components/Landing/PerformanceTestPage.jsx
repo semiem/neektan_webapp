@@ -39,7 +39,7 @@ export default function PerformanceTestPage() {
       </div>
       {/* End Search */}
       <div className="mb-20">
-        <Link to="">
+        <Link to="/Detail/202">
           <div className="relative mx-auto w-11/12 mt-4">
             <img src={pic} alt="" className="rounded-xl mx-auto" />
             <div className="overlayImage1 rounded-xl"></div>
@@ -63,7 +63,7 @@ export default function PerformanceTestPage() {
             </div>
           </div>
         </Link>
-        <Link to="">
+        <Link to="/Detail/202">
           <div className="relative mx-auto w-11/12 mt-4">
             <img src={pic} alt="" className="rounded-xl mx-auto" />
             <div className="overlayImage1 rounded-xl"></div>

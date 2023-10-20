@@ -1,11 +1,9 @@
-import { HiHome } from "react-icons/hi";
-import { RxLapTimer } from "react-icons/rx";
+import { GoHomeFill } from "react-icons/go";
+import { LuTimer } from "react-icons/lu";
 import { MdOutlineInsertChartOutlined } from "react-icons/md";
-import { SlSettings } from "react-icons/sl";
+import { IoIosSettings } from "react-icons/io";
 
-import { Link } from "react-router-dom";
-import { Outlet } from "react-router-dom";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link, Outlet } from "react-router-dom";
 
 export default function PanelLayout() {
   const location = useLocation();
@@ -15,16 +13,10 @@ export default function PanelLayout() {
     <div>
       <Outlet />
       <div className="w-full sm:w-4/12 mx-auto">
-        <div
-          className="fixed bottom-0 w-full sm:w-4/12 h-14 rounded-t-3xl z-50"
-          style={{
-            background:
-              "linear-gradient(180deg, rgba(40,85,152,1) 0%, rgba(23,35,61,1) 65%, rgba(22,32,44,1) 80%)",
-          }}
-        >
+        <div className="fixed bottom-0 w-full sm:w-4/12 h-14 rounded-t-[2rem] bg-menu-gradient z-50">
           <div className="flex justify-around mt-3">
             <Link to="/Settings">
-              <SlSettings
+              <IoIosSettings
                 className={
                   pathname.includes("/Settings")
                     ? "w-8 h-8 text-sky-500 cursor-pointer"
@@ -42,7 +34,7 @@ export default function PanelLayout() {
               />
             </Link>
             <Link to="/PerformanceTest">
-              <RxLapTimer
+              <LuTimer
                 className={
                   pathname.includes("/PerformanceTest")
                     ? "w-8 h-8 text-sky-500 cursor-pointer"
@@ -51,7 +43,7 @@ export default function PanelLayout() {
               />
             </Link>
             <Link to="/Home">
-              <HiHome
+              <GoHomeFill
                 className={
                   pathname.includes("/Home")
                     ? "w-8 h-8 text-sky-500 cursor-pointer"
