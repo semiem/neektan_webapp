@@ -250,11 +250,11 @@ function TimerPage(counter) {
                     <span className="text-violet-200 font-iran">رنگ ها</span>
                     <div className="flex">
                         <span onClick={() => setBtnColor(3)}
-                              className="w-12 h-12 bg-blue-500 rounded-full mx-1 border-[1px] border-[#15233c] text-center font-bold text-xl">3</span>
+                              className="w-12 h-12 bg-blue-500 rounded-full mx-1 border-[1px] border-[#15233c] text-center font-bold text-xl cursor-grab">3</span>
                         <span onClick={() => setBtnColor(2)}
-                              className="w-12 h-12 bg-green-500 rounded-full mx-1 border-[1ظpx] border-[#15233c] text-center font-bold text-xl">2</span>
+                              className="w-12 h-12 bg-green-500 rounded-full mx-1 border-[1ظpx] border-[#15233c] text-center font-bold text-xl cursor-grab">2</span>
                         <span onClick={() => setBtnColor(1)}
-                              className="w-12 h-12 bg-red-500 rounded-full mx-1	 border-[1px] border-[#15233c] text-center font-bold text-xl">1</span>
+                              className="w-12 h-12 bg-red-500 rounded-full mx-1	 border-[1px] border-[#15233c] text-center font-bold text-xl cursor-grab">1</span>
                     </div>
                 </div>
                 <div className="w-full flex justify-around items-end gap-8">
