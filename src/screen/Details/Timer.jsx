@@ -25,6 +25,8 @@ function TimerPage(counter) {
     // const [readyState, setReadyState] = useState(true);
     const [isPlay, setIsPlay] = useState(false);
     const [cycleState, setCycleState] = useState(0);
+    const [hb, setHb] = useState(0);
+    const [calorie, setCalorie] = useState(0);
     const [statusMessage, setStatusMessage] = useState("آماده اتصال");
     let totCycle = 0;
     const [ws, setWs] = useState();
@@ -32,26 +34,52 @@ function TimerPage(counter) {
     const [socketUrl, setSocketUrl] = useState("ws://192.168.66.66:81");
     const [messageHistory, setMessageHistory] = useState([]);
     const {sendMessage, lastMessage, readyState} = useWebSocket(socketUrl);
+    const {deviceStat, setDeviceStat} = useState({
+        "devices": [
+            {deviceId: 1, touchCnt: 0},
+            {deviceId: 2, touchCnt: 0},
+            {deviceId: 1, touchCnt: 0}
+        ]
+    });
 
     useEffect(() => {
-        if (lastMessage !== null) {
-            console.log(lastMessage.data)
-            let res = JSON.parse(lastMessage.data);
-            // if (res.statusConnection != undefined){
-            //     if (res.statusConnection == true){
-            //         setConfigSet(true);
-            //     }
-            // }
-            // else
-            if (res.statusConfig != undefined) {
-                if (res.statusConfig == true) {
-                    setConfigSet(true);
-                    console.log("ConfigResponseSet");
+        console.log("RD: ", readyState)
+        if (readyState) {
+            if (lastMessage !== null) {
+                console.log(lastMessage.data)
+                let res = JSON.parse(lastMessage.data);
+                // if (res.statusConnection != undefined){
+                //     if (res.statusConnection == true){
+                //         setConfigSet(true);
+                //     }
+                // }
+                // else
+                if (res.statusConfig != undefined) {
+                    if (res.statusConfig == true) {
+                        setConfigSet(true);
+                        console.log("ConfigResponseSet");
+                    }
                 }
-            }
-            // setConfigSet(true);
+                if (configSet) {
+                    if (res?.statusTouch == true) {
+                        if (res?.touchedDevice > 0) {
+                            let idx = res?.touchedDevice;
+                            deviceStat[idx - 1].touchCnt++;
+                            let endT = new Date();
+                            let reaction = (endT.getTime() - startT.getTime()) / 1000;
+                            setChartData([...chartData, {x: cTime, y: reaction}]);
+                        }
+                    }
+                    if (res?.statusHB == true) {
+                        if (res?.HB > 0) {
+                            setHb(res?.HB);
+                        }
+                    }
+                }
+                // setConfigSet(true);
 
-            // setMessageHistory((prev) => prev.concat(lastMessage));
+                // setMessageHistory((prev) => prev.concat(lastMessage));
+            }
         }
     }, [lastMessage, setMessageHistory]);
 
@@ -71,6 +99,8 @@ function TimerPage(counter) {
         //
         // };
     }, []);
+    const [startT, setStartT] = useState(new Date());
+    const [endT, setEndT] = useState(new Date());
 
     const testWebSocket = (data) => {
         // const ws = new WebSocket("ws://192.168.66.66:81");
@@ -88,12 +118,13 @@ function TimerPage(counter) {
                             const tData = {
                                 event: "Play",
                                 data: [
-                                    {state: i % 3 == 0 ? true : false, number:1},
-                                    {state: i % 3 == 1 ? true : false, number:2},
-                                    {state: i % 3 == 2 ? true : false, number:3},
+                                    {state: i % 3 == 0 ? true : false, number: 1},
+                                    {state: i % 3 == 1 ? true : false, number: 2},
+                                    {state: i % 3 == 2 ? true : false, number: 3},
                                 ],
                             };
                             sendMessage(JSON.stringify(tData));
+                            setStartT(new Date());
                             // console.log("3 * counter: " + 3 * counter)
                             // console.log("i: " + i)
                             // if(3 * counter <= i){
@@ -105,10 +136,10 @@ function TimerPage(counter) {
                             // }
                             if (--i) myLoop(i); //  decrement i and call myLoop again if i > 0
                         }, 2000);
-                       
+
                     })(3 * counter);
 
-                   
+
                 } else {
                     console.log("ConfigNotSet")
                     if (readyState != 1) {
@@ -121,7 +152,7 @@ function TimerPage(counter) {
                                 timeout: 2,
                                 logger_n: 3,
                                 ledTimeout: 5,
-                               ColorsNumbers: [
+                                ColorsNumbers: [
                                     {number: 1, color: "red"},
                                     {number: 2, color: "green"},
                                     {number: 3, color: "blue"}
@@ -139,6 +170,7 @@ function TimerPage(counter) {
         }
     };
 
+    const [cTime, setCTime] = useState(0);
     const [timeControl] = useState(Date.now() + counter * 10000);
     //setTimeControl
     const renderer = ({formatted: {hours, minutes, seconds}, completed}) => {
@@ -149,6 +181,7 @@ function TimerPage(counter) {
                 </div>
             );
         } else {
+            setCTime(seconds);
             return (
                 <div className="font-light text-[#4298fa] text-3xl block text-center">
                     {hours}:{minutes}:{seconds}
@@ -207,6 +240,8 @@ function TimerPage(counter) {
             console.log("ShowColorNumber " + number + " => " + color);
         }
     };
+    const [chartData, setChartData] = useState([{x: 0, y: 0}]);
+
 
     return (
         <div
@@ -250,38 +285,44 @@ function TimerPage(counter) {
                 </div>
             </div>
             <div className="w-full rounded-md bg-[#15233c] py-8 flex flex-col gap-8">
-                <div className="flex justify-between items-center px-3">
+                <div className="flex justify-between items-center px-3 ">
                     <span className="text-violet-200 font-iran">رنگ ها</span>
                     <div className="flex">
                         <span onClick={() => setBtnColor(3)}
-                              className="w-12 h-12 bg-blue-500 rounded-full mx-1 border-[1px] border-[#15233c] text-center font-bold text-xl cursor-grab">3</span>
+                              className="flex justify-center items-center w-12 h-12 bg-blue-500 rounded-full mx-1 border-[1px] border-[#15233c] text-center font-bold text-sm cursor-pointer">3</span>
                         <span onClick={() => setBtnColor(2)}
-                              className="w-12 h-12 bg-green-500 rounded-full mx-1 border-[1ظpx] border-[#15233c] text-center font-bold text-xl cursor-grab">2</span>
+                              className="flex justify-center items-center w-12 h-12 bg-green-500 rounded-full mx-1 border-[1ظpx] border-[#15233c] text-center font-bold text-sm cursor-pointer">2</span>
                         <span onClick={() => setBtnColor(1)}
-                              className="w-12 h-12 bg-red-500 rounded-full mx-1	 border-[1px] border-[#15233c] text-center font-bold text-xl cursor-grab">1</span>
+                              className="flex justify-center items-center w-12 h-12 bg-red-500 rounded-full mx-1	 border-[1px] border-[#15233c] text-center font-bold text-sm cursor-pointer">1</span>
                     </div>
                 </div>
-                <div className="w-full flex justify-around items-end gap-8">
+                <div className="w-full flex justify-around items-end gap-8 w-20">
                     <div className="flex flex-col items-center gap-3">
+                        <span className="text-white text-lg font-iran">{hb}</span>
+                        <span className="text-white text-xs font-iran opacity-80 text-center">
+                          ضربان قلب
+                        </span>
+                    </div>
+                    <div className="flex flex-col items-center gap-3 w-20">
                         <span className="text-white text-lg font-iran">1000</span>
                         <span className="text-white text-xs font-iran opacity-80 text-center">
-              واکنش متوسط
-            </span>
+                          واکنش متوسط
+                        </span>
                     </div>
                     <div
-                        className="flex w-28 h-[100px] -mb-3 flex-col items-center justify-center gap-1 rounded-xl bg-[#101a2c]">
-            <span className="flex justify-start text-white font-iran text-2xl">
-              7
-            </span>
+                        className="flex w-20 h-[100px] -mb-3 flex-col items-center justify-center gap-1 rounded-xl bg-[#101a2c]">
+                        <span className="flex justify-start text-white font-iran text-2xl">
+                          {calorie}
+                        </span>
                         <span className="text-white text-xs font-iran opacity-80">
-              بازدید
-            </span>
+                            کالری
+                        </span>
                     </div>
-                    <div className="flex flex-col items-center gap-3">
+                    <div className="flex flex-col items-center gap-3 ">
                         <span className="text-white text-lg font-iran">8</span>
                         <span className="text-white text-xs font-iran opacity-80 text-center">
-              ضربه منقضی شده
-            </span>
+                          ضربه منقضی شده
+                        </span>
                     </div>
                 </div>
                 <div>
@@ -289,7 +330,7 @@ function TimerPage(counter) {
             زمان واکنش <span className="text-xs">(میلی ثانیه)</span>
           </span>
                 </div>
-                <Chart/>
+                <Chart chartData={chartData}/>
             </div>
         </div>
     );
