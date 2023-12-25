@@ -11,9 +11,9 @@ const Timer = () => {
     const location = useLocation();
     // let {counter} = location.state
     // if (counter === undefined)
-    let counter = 3;
-    console.log("counter");
-    console.log(counter);
+    let counter = 9;
+    // console.log("counter");
+    // console.log(counter);
 
     // return <></>
     return TimerPage(counter);
@@ -34,19 +34,19 @@ function TimerPage(counter) {
     const [socketUrl, setSocketUrl] = useState("ws://192.168.66.66:81");
     const [messageHistory, setMessageHistory] = useState([]);
     const {sendMessage, lastMessage, readyState} = useWebSocket(socketUrl);
-    const {deviceStat, setDeviceStat} = useState({
+    const [deviceStat, setDeviceStat] = useState({
         "devices": [
             {deviceId: 1, touchCnt: 0},
             {deviceId: 2, touchCnt: 0},
-            {deviceId: 1, touchCnt: 0}
+            {deviceId: 3, touchCnt: 0}
         ]
     });
 
     useEffect(() => {
-        console.log("RD: ", readyState)
+        // console.log("RD: ", readyState)
         if (readyState) {
             if (lastMessage !== null) {
-                console.log(lastMessage.data)
+                // console.log(lastMessage.data)
                 let res = JSON.parse(lastMessage.data);
                 // if (res.statusConnection != undefined){
                 //     if (res.statusConnection == true){
@@ -57,14 +57,16 @@ function TimerPage(counter) {
                 if (res.statusConfig != undefined) {
                     if (res.statusConfig == true) {
                         setConfigSet(true);
-                        console.log("ConfigResponseSet");
+                        // console.log("ConfigResponseSet");
                     }
                 }
                 if (configSet) {
                     if (res?.statusTouch == true) {
                         if (res?.touchedDevice > 0) {
                             let idx = res?.touchedDevice;
-                            deviceStat[idx - 1].touchCnt++;
+                            console.log("deviceStat:", deviceStat)
+                            console.log("idx:", idx)
+                            deviceStat.devices[idx - 1].touchCnt++;
                             let endT = new Date();
                             let reaction = (endT.getTime() - startT.getTime()) / 1000;
                             setChartData([...chartData, {x: cTime, y: reaction}]);
@@ -93,7 +95,7 @@ function TimerPage(counter) {
 
     useEffect(() => {
         // setWs(new WebSocket(""))
-        console.log("TESTT");
+        // console.log("TESTT");
         // ws.onopen = (event) => {
         //     console.log(ws.readyState)
         //
@@ -105,22 +107,28 @@ function TimerPage(counter) {
     const testWebSocket = (data) => {
         // const ws = new WebSocket("ws://192.168.66.66:81");
         if (readyState != 1) {
-            console.log("Still Conncting");
+            // console.log("Still Conncting");
         } else {
             if (readyState) {
-                console.log("READY")
+                // console.log("READY")
                 if (configSet) {
-                    console.log("StartLoop");
+                    // console.log("StartLoop");
                     (function myLoop(i) {
                         setCycleState(i);
-                        console.log("Counter: " + counter);
+                        // console.log("Counter: " + counter);
                         setTimeout(function () {
                             const tData = {
                                 event: "Play",
                                 data: [
-                                    {state: i % 3 == 0 ? true : false, number: 1},
-                                    {state: i % 3 == 1 ? true : false, number: 2},
-                                    {state: i % 3 == 2 ? true : false, number: 3},
+                                    {state: i % 3 == 0 ? true : false,
+                                        color: i % 3 == 0 ? "blue" : "red",
+                                         number: 1},
+                                    {state: i % 3 == 1 ? true : false,
+                                        color: i % 3 == 1 ? "blue" : "red",
+                                         number: 2},
+                                    {state: i % 3 == 2 ? true : false,
+                                        color: i % 3 == 2 ? "blue" : "red",
+                                         number: 3},
                                 ],
                             };
                             sendMessage(JSON.stringify(tData));
@@ -141,9 +149,9 @@ function TimerPage(counter) {
 
 
                 } else {
-                    console.log("ConfigNotSet")
+                    // console.log("ConfigNotSet")
                     if (readyState != 1) {
-                        console.log("Still Conncting");
+                        // console.log("Still Conncting");
                     } else {
                         const tData = {
                             event: "Setup",
@@ -161,7 +169,7 @@ function TimerPage(counter) {
                         };
                         sendMessage(JSON.stringify(tData));
                         // setConfigSet(true);
-                        console.log("ConfigSent");
+                        // console.log("ConfigSent");
 
                     }
 
@@ -193,22 +201,22 @@ function TimerPage(counter) {
     const clockRef = useRef();
 
     const handleStart = () => {
-        console.log("ClickStart")
+        // console.log("ClickStart")
         if (readyState) {
             if (configSet) {
-                console.log("ConfigSet");
+                // console.log("ConfigSet");
                 testWebSocket();
                 setIsPlay(true);
                 clockRef.current.start();
             } else {
-                console.log("ConfigNotSet");
+                // console.log("ConfigNotSet");
                 testWebSocket();
 
             }
         }
     };
     const handlePause = () => {
-        console.log("ClickPause")
+        // console.log("ClickPause")
         if (readyState) {
             setIsPlay(false);
             clockRef.current.pause();
@@ -237,7 +245,7 @@ function TimerPage(counter) {
                 color: color
             };
             sendMessage(JSON.stringify(tData));
-            console.log("ShowColorNumber " + number + " => " + color);
+            // console.log("ShowColorNumber " + number + " => " + color);
         }
     };
     const [chartData, setChartData] = useState([{x: 0, y: 0}]);
